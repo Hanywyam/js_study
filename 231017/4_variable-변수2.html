@@ -1,0 +1,22 @@
+<body>
+  <h1>var VS let</h1>
+  <script>
+    // variable-변수2
+    console.log('------ var ------');
+    // 변수 a를 인지하고 메모리에 변수 a의 자리를 만들어 놓은 상태(초기화) <== 변수 호이스팅
+    console.log(a); // undefined -> error는 아님.
+    var a = 100;
+    a = 200; // 값의 재할당
+    console.log(a);
+    var a = '중복 선언, 재선언 가능';
+    console.log(a);
+
+    console.log('------ let ------');
+    // console.log(b); == Uncaught ReferenceError: Cannot access 'b' before initialization -> error로 뜸.
+    // 참조 에러. 변수 호이스팅이 안됨.
+    let b = 500;
+    b = 1000;
+    console.log(b);
+    // let b = '중복 선언, 재선언 불가능!';
+  </script>
+</body>

@@ -1,0 +1,86 @@
+<body>
+  <h1>데이터 타입</h1>
+  <script>
+    console.log('------ 문자열 String ------');
+    let str = "string1"; // 큰 따옴표
+    str = 'string2'; // 작은 따옴표
+    str = `string3`; // 백틱 ES6+
+    str = "큰 따옴표로 감싼 문자열 내의 '작은 따옴표'는 문자열이다.";
+    str = '작은 따옴표로 감싼 문자열 내의 "큰 따옴표"는 문자열이다.';
+    str = `백틱으로 감싼 문자열 내의 "큰 따옴표", '작은 따옴표'는 문자열이다.`;
+    str = `string`;
+    // 메서드 == 정해진 기능 == 이 행동(기능)을 하겠다. / 변수에 재할당.
+    str = str.toUpperCase(); //대문자.
+    console.log(str);
+    str = str.toLowerCase(); //소문자.
+    console.log(str);
+    str = str.substring(1, 3); //(시작 인덱스, 마지막 인덱스 앞까지) 문자열 구분.
+    // 스크립트에서는 인덱스 번호가 존재하며 0부터 시작.    
+    console.log(str); // 1=t 부터 3=i 앞까지. tr
+    console.log(str.length); //요소의 갯수
+
+    console.log('------ 숫자 Number ------');
+    let num = 10; // 양수
+    num = 1.10; // 실수
+    num = -10; // 음수
+    num = '-10'; // 숫자열 문자 == 문자열 : 숫자가 아니에요.
+    console.log(num);
+
+    console.log('------ 논리(불린) Boolean ------');
+    let boo = true; // 참 == 1
+    boo = false; // 거짓 == 0
+    console.log(boo);
+
+    console.log('------ undefined ------');
+    /* 
+    선언은 되었지만 값을 할당하지 않은 변수에 접근할 때
+    존재하지 않은 객체 프로퍼티(속성)에 접근할 때
+    개발자가 의도적으로 할당한 값이 아닌 자바스크립트 엔진에 의해 초기화 된 값.
+    */
+    let unde;
+    console.log(unde); //undefined
+
+    console.log('------ null ------');
+    /* 값 없음.
+    개발자가 의도적으로 변수에 값을 넣지 않았다는 것을 명시할 때 사용. 개발자의 의지로 아무것도 없는 상태.
+    */
+    unde = null;
+    console.log(unde); //null
+
+    console.log('------ 객체 Object------');
+    let obj = {} // 빈 객체
+    obj = {
+      name: 'js',
+      num: 1
+    }
+    console.log(obj); //함수, 배열, 심볼은 모두 객체 안에 들어간다. (넓은 의미)
+
+    console.log('------ 함수 Funtion ------');
+    let fn = function fx() { };
+    console.log(fn);
+
+    console.log('------ 배열 Array ------');
+    // 여러 개의 값을 가질 수 있는 변수.
+    let arr = [`배열`, 2, obj, function () { }, true]
+    console.log(arr);
+
+    console.log('------ 심볼 symbol ------');
+    // 변경 불가능한 원시타입 값. 주로 유일한 객체 프로퍼티 키를 만들기 위해 사용.
+    let sym = Symbol('심볼');
+    console.log(sym);
+
+    console.log('------ typeof 연산자: 데이터 타입을 문자열로 반환 ------');
+    console.log(typeof sym); //symbol
+    console.log(typeof arr); //object
+    console.log(typeof fn); //function
+    console.log(typeof obj); //object
+    console.log(typeof unde); //object 설계 오류 - null
+    console.log(typeof boo); //boolean
+    console.log(typeof num); //string
+    console.log(typeof str); //string
+    console.log(typeof []); // 빈 배열 object
+    console.log(typeof ''); // 빈 문자열 object
+    console.log(typeof NaN); // number. Not a number. 데이타 검증할 때 숫자가 아니라고 표기할 때 NaN으로 돌려줌.
+
+  </script>
+</body>

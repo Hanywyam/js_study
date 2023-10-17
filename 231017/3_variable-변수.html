@@ -1,0 +1,38 @@
+<body>
+  <h1>변수 선언</h1>
+  <script>
+    // variable-변수1
+
+    // 변수 선언 == 변수명: 인덱스(이름표)를 붙여 놓은 것.
+    var apple;
+    console.log(apple); //undefined 변수가 선언만 되고 값을 할당 받지 못했을 때 나옴. 자바스크립트에만 있는 독특한 값.
+    console.log('apple'); //'인용부호' 사용 시 '문자열'이 된다.
+    var apple; // var는 재선언 가능. let은 재선언 불가능.
+
+    // 변수 선언 후 대입
+    let banana; //변수 선언
+    banana = 1000; // 변수 banana에 숫자 1000을 '대입'
+    console.log(banana);
+    banana = 2000; // 값의 재할당
+    console.log(banana);
+
+    // 변수 선언과 동시에 대입
+    let orange = 1234;
+    console.log(orange);
+
+    //여러 개의 변수 선언 후 각각의 값 대입
+    let a, b, c, d;
+    a = 1, b = 2, c = 4, d = a + b + c;
+    console.log(a);
+    console.log(b);
+    console.log(c + b);
+    console.log(d);
+
+    //한 줄에 여러 변수를 선언함과 동시에 값 대입
+    let 변수1 = 22, 변수2 = 33, 합계 = 변수1 + 변수2;
+    console.log(합계);
+    let num1 = 21234, num2 = 234141252, sum = num1 + num2;
+    console.log(sum);
+    console.log(sum + 합계);
+  </script>
+</body>

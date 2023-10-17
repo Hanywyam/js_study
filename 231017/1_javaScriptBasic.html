@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScriptBasic</title>
+  <style>
+    body {
+      background-color: #ddd;
+      line-height: 2;
+    }
+  </style>
+  <!-- 내부선언 script
+  ========================== -->
+  <script type="text/javascript">
+    // == XML 기본 구성 방식
+
+    // 스크립트 한 줄 주석
+    // type 속성은 xml, xhtml 방식일 때 필수지만, html에선 없는게 기본.
+    // react에서는 type 속성 필수
+  </script>
+  <script>
+    /*
+    shift+alt+a
+    : 여러 줄 주석 처리
+    
+    JS 작성 시 주의사항
+    head 영역 등 DOM을 불러오기 전에 작성시 문서 준비 이벤트 필요
+    */
+  </script>
+
+  <!-- 외부 선언 script
+  ========================== -->
+  <!-- <script src="./script.js"></script> -->
+
+  <!-- (== html 속성)defer 속성 작성시 스크립트 내부에 문서 준비 이벤트 불필요 -->
+  <script defer src="./script.js"></script>
+</head>
+
+<body>
+  <h1>JavaScript Basic</h1>
+  <h2>자바스크립트 코드의 작성 위치</h2>
+  <ol>
+    <li> HTML 태그의 이벤트 리스너 속성에 작성
+      <ul>
+        <li>〈img src=“apple.jpg” alt=“img” onclick="this" src="banana.png”〉</li>
+      </ul>
+    </li>
+    <li> 〈script〉 〈/script〉 내 작성</li>
+    <li> 자바스크립트 코드를 별도 파일에 작성
+      <ul>
+        <li>DOM을 다 불러온 위치: 〈script src=“script.js”〉〈/script〉</li>
+        <li>DOM을 불러오기 전 위치: 〈script defer src=“script.js”〉〈/script〉</li>
+      </ul>
+    </li>
+  </ol>
+  <p>
+    [출처] Javascript 란? (비공개 카페)
+  </p>
+
+  <!-- DOM을 다 불러온 다음 JS 실행 -->
+  <script>
+    // 내부문서
+    // document.querySelector("body").innerHTML = "hello JavaScript";
+  </script>
+  <!-- 외부 문서 -->
+  <!-- <script src="./script.js"></script> -->
+</body>
+
+</html>
