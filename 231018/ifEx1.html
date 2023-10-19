@@ -1,0 +1,39 @@
+<html>
+
+<body>
+  <h2>ifEx1</h2>
+  <!-- 
+    입력 받은 점수가 60점 이상이면, 'xx점은 통과입니다' 출력
+    60점 미만이면, 'xx점은 재평가입니다' 출력
+    100점 초과이면, '100점 이하로만 입력해 주세요' 출력
+    그 외 '숫자만 입력해 주세요' 출력
+   -->
+  <script>
+    let score = prompt('점수를 입력하세요');
+
+    /*
+    if (score >= 60) {
+      alert(`${score}점은 통과입니다`);
+    } else if (score < 60) {
+      alert(`${score}점은 재평가입니다`);
+    } else if (score > 100) {
+      alert('100점 이하로만 입력해 주세요');
+    } else {
+      alert('숫자만 입력해 주세요')
+    }
+    */
+
+    // if문 작성시 순서가 중요
+    if (score > 100) {
+      alert('100점 이하로만 입력해 주세요');
+    } else if (score >= 60) {
+      alert(`${score}점은 통과입니다`);
+    } else if (score < 60) {
+      alert(`${score}점은 재평가입니다`);
+    } else {
+      alert('숫자만 입력해 주세요')
+    }
+  </script>
+</body>
+
+</html>

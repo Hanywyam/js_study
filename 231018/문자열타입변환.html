@@ -1,0 +1,30 @@
+<body>
+  <h2>문자열타입변환</h2>
+  <script>
+    // String 생성자 함수를 이용한 변환
+    let num = 1;// number
+    num = String(1);// string 숫자형 문자열
+    // num += 1; '1' + 1 -> 11 string
+    num -= 1;// 0 'number' 바로 위 변수 값이 숫자형 문자열이었으나 더하기 연산자를 제외한 다른 연산자에선 자동으로 형 변환이 일어나 숫자로 연산 됨
+    num = NaN;// number
+    num = String(NaN);// string
+    num = true;// boolean
+    num = String(num);// string
+
+    console.log(num, typeof num);
+
+    // Object.prototype.toString() 메서드 변환
+    let obj = (1).toString();// 숫자형 문자열 string
+    obj = (NaN).toString();
+    obj = (false).toString();
+
+    console.log(obj, typeof obj);
+
+    // 더하기 연산자 
+    let str = 1 + '';// 빈 문자열 이용.
+    str = NaN + '';
+    str = true + '';
+
+    console.log(str, typeof str);
+  </script>
+</body>

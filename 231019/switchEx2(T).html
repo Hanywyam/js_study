@@ -1,0 +1,40 @@
+<html>
+
+<body>
+  <script>
+    // switchEx1.html
+    //  1~4 사이의 숫자를 입력하면 해당 번호의 이미지 출력
+    // 취소 버튼 클릭시 취소했습니다 출력
+
+    let num = prompt(`1~4번까지의 숫자를 입력하세요`);
+    num = +num;// 문자열 -> 숫자
+
+    let url = '';
+    switch (num) {
+      case null:
+        url = `<h2>취소 했습니다</h2>`;
+        break;
+      case 1:
+      case 2:
+      case 3:
+      case 4:
+        url = `<img src="./images/food${num}.jpg" alt="img${num}">`;
+        break;
+      default:
+        url = `<h2>해당 번호만 입력해 주세요</h2>`;
+    }
+
+    document.body.innerHTML = url;
+
+    // if (num) {
+    //   document.body.innerHTML = `<img src="./images/${url}" alt="img${num}">`
+    // } else if (num == null) {
+    //   `<h2>취소 했습니다</h2>`;
+    // } else {
+    //   document.body.innerHTML = `<h2>해당 번호만 입력해 주세요</h2>`;
+    // }
+
+  </script>
+</body>
+
+</html>

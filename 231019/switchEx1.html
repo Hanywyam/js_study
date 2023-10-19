@@ -1,0 +1,66 @@
+<html>
+
+<body>
+  <!-- switchEx1
+      입력 받은 값이 짝수인 경우 xx은 짝수입니다 출력
+      입력 받은 값이 홀수인 경우 xx은 홀수입니다 출력
+     -->
+
+  <script>
+    let num = Number(prompt('숫자를 입력하세요.'));
+    console.log(typeof num);
+
+    /* 
+            switch (num % 2) {
+              case 0:
+                document.body.innerHTML = `<h2>입력한 ${num}은/는 짝수입니다.</h2>`
+                break;
+              case 1:
+                document.body.innerHTML = `<h2>입력한 ${num}은/는 홀수입니다.</h2>`
+                break;
+        
+              default:
+                document.body.innerHTML = `<h2>숫자만 입력해 주세요.</h2>`;
+            }
+    */
+    msg = '';
+    switch (num % 2) {
+      case 0:
+        msg = '짝수';
+        break;
+      case 1:
+        msg = '홀수';
+        break;
+
+      default:
+        document.body.innerHTML = `<h2>숫자만 입력해 주세요.</h2>`;
+    }
+    // msg && (document.body.innerHTML = `<h2>입력한 ${num}(은)는 ${msg}입니다.</h2>`);
+
+    if (msg) document.body.innerHTML = `<h2>입력한 ${num}(은)는 ${msg}입니다.</h2>`;
+  </script>
+
+  <!-- 
+  <script>
+    let msg = '';
+    let num = prompt('숫자를 입력하세요.');
+    let 홀수, 짝수;
+    홀수 = '';
+    짝수 = '';
+    num = Number(num);
+
+    switch (num) {
+      case 홀수:
+      case 짝수:
+
+        msg = `입력한 ${num}는 ${홀수}입니다.`;
+        msg = `입력한 ${num}는 ${짝수}입니다.`;
+        break;
+      default:
+        msg = `숫자만 입력해 주세요.`;
+    }
+  </script>
+   -->
+</body>
+
+</html>

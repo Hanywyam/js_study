@@ -1,0 +1,67 @@
+<html>
+
+<body>
+  <!-- switchEx2
+      1~4 사이의 숫자를 입력하면 해당 번호의 이미지 풀력
+      취소 버튼 클릭시 취소했습니다 출력
+     -->
+  <script>
+    let num = prompt(`1~4번까지 숫자를 입력하세요`);
+    num = +num; // 문자열 -> 숫자 변경
+    let url = '';
+    switch (num) {
+      case null:
+        url = `<h2>취소했습니다.</h2>`;
+        break;
+      case 1:
+        url = `food1.jpg`;
+        break;
+      case 2:
+        url = `food2.jpg`;
+        break;
+      case 3:
+        url = `food3.jpg`;
+        break;
+      case 4:
+        url = `food4.jpg`;
+        break;
+      default:
+        url = `<h2>해당 번호만 입력해 주세요.</h2>`;
+    }
+    if (num) {
+      document.body.innerHTML = `<img src="./images/${url}" alt="img${num}">`;
+    } else if (num == null) {
+      `<h2>취소했습니다.</h2>`;
+    } else {
+      document.body.innerHTML = `<h2>해당 번호만 입력해 주세요.</h2>`;
+    }
+
+  </script>
+  <!-- 
+  <script>
+    let num = prompt('1~4 사이의 숫자를 입력하세요.');
+    num = num * 1;
+    switch (num) {
+      case 1:
+        document.body.innerHTML = '<img src="./images/food1.jpg" alt="img1">';
+        break;
+      case 2:
+        document.body.innerHTML = '<img src="./images/food2.jpg" alt="img1">';
+        break;
+      case 3:
+        document.body.innerHTML = '<img src="./images/food3.jpg" alt="img1">';
+        break;
+      case 4:
+        document.body.innerHTML = '<img src="./images/food4.jpg" alt="img1">';
+        break;
+
+      default:
+        document.body.textContent = (`<h2>해당 번호만 입력해 주세요.</h2>`);
+        break;
+    }
+    if (num === null) document.body.innerHTML = (`<h2>취소되었습니다.</h2>`);
+  </script>
+   -->
+</body>
+
+</html>

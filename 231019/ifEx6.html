@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<body>
+  <h2>ifEx6</h2>
+  <!-- 
+    입력한 점수에 따라 상(100~81), 중(80~61), 하(60~41), 탈락(40~0) 출력
+    그 외 내용 입력 시 '점수만 입력하세요' 출력
+   
+    취소 버튼 클릭 시 '입력이 취소되었습니다' 출력
+  -->
+  <script>
+    let score = prompt('점수를 입력하세요');
+    num = 100;
+    /* 
+        if (score === null) {
+          document.body.innerHTML = `<h2>입력이 취소되었습니다.</h2>`;
+        } // 취소 버튼 클릭 시. 순서 중요함.
+        else if (score <= 100 && 81 <= score) {
+          document.body.innerHTML = `<h2>${score}점은 '상'입니다.</h2>`;
+        } else if (score <= 80 && 61 <= score) {
+          document.body.innerHTML = `<h2>${score}점은 '중'입니다.</h2>`;
+        } else if (score <= 60 && 41 <= score) {
+          document.body.innerHTML = `<h2>${score}점은 '하'입니다.</h2>`;
+        } else if (score <= 40 && 0 <= score) {
+          document.body.innerHTML = `<h2>${score}점은 '탈락'입니다.</h2>`;
+        } else {
+          document.body.textContent = `<h2>점수만 입력하세요</h2>`;
+        }
+         */
+
+    let grade = ''; // 문자열 초기화
+    if (score === null) {
+      document.body.innerHTML = `<h2>입력이 취소되었습니다.</h2>`;
+    } else if (score <= 100 && 81 <= score) {
+      grade = '상'; // grade 변수에 재할당
+    } else if (score <= 80 && 61 <= score) {
+      grade = '중';
+    } else if (score <= 60 && 41 <= score) {
+      grade = '하';
+    } else if (score <= 40 && 0 <= score) {
+      grade = '탈락';
+    } else {
+      document.body.innerHTML = `<h2>점수만 입력하세요</h2>`;
+    }
+
+    // if (grade) {
+    //   document.body.innerHTML = `<h2>${score}점은 ${grade}입니다.</h2>`
+    // }
+
+    // 사망연산자?...
+    // grade ? document.body.innerHTML = `<h2>${score}점은 ${grade}입니다.</h2>` : false;
+
+    // 단락회로평가
+    grade && (document.body.innerHTML = `<h2>${score}점은 ${grade}입니다.</h2>`);
+  </script>
+
+
+</body>
+
+</html>

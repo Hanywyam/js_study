@@ -1,0 +1,38 @@
+<body>
+  <h2>숫자타입변환</h2>
+  <script>
+    // Number(); 생성자 함수
+    let num = '0';// string
+    num = Number('0');// number
+    num = Number("-1");// number
+    num = Number("-10.414654");// number
+    num = Number(true);// 1 number
+    num = Number(false);// 0 number
+    num = Number('문자열');// NaN number
+
+    console.log(num, typeof num);
+
+    // .parseInt() 정수 반환, .parseFloat() 실수 반환. 숫자형 문자열에만
+    console.log(typeof parseInt('0'));// number
+    console.log(typeof parseInt('-1'));// number
+    console.log(parseInt('10.1111'));// 10
+    console.log(parseFloat('10.1111'));// 10.1111
+    console.log(parseInt('문자열'));// NaN
+    console.log(parseInt(true));// NaN
+
+    // + 더하기 연산자
+    console.log(+ '문자열');// NaN
+    console.log(+ true);// 1
+    console.log(+ false);// 0
+    console.log(+ '');// 0
+    console.log(+ '0');// 0
+    console.log(+ '-1');// -1
+
+    // * 1 곱하기 연산자
+    console.log('0' * 1);// 0 
+    console.log('-1.2' * 1);// -1.2
+    console.log(true * 1);// 1 * 1 -> 1 
+    console.log(false * 1);// 0 * 1 -> 0 
+    console.log('문자열' * 1);// NaN
+  </script>
+</body>

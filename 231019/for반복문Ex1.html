@@ -1,0 +1,30 @@
+<html>
+
+<body>
+  <!-- for반복문Ex1 
+      사용자가 입력한 값까지의 합을 출력
+    -->
+  <script>
+    const num = prompt('숫자를 입력하세요.'); // 문자열
+    let total = 0;
+    for (let i = 1; i <= num; i++) { // 숫자형 문자열의 자동변환
+      total += i;
+    }
+    console.log(`사용자 입력한 ${num}의 합은 ${total}입니다.`);
+  </script>
+  <!-- 
+  <script>
+    let msg = prompt('값을 입력하세요.');
+    let total = 0;
+    for (let i = 1; i <= msg; i++) {
+      total += i;
+      console.log(total);
+    }
+    document.body.innerHTML = `<h2>입력한 값까지의 합은 ${total}입니다.</h2>`
+    console.log('---- 최종 ----');
+    console.log(total);
+  </script>
+   -->
+</body>
+
+</html>

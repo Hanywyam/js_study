@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>대입연산자ex</title>
+  <style>
+    body {
+      text-transform: uppercase;
+    }
+  </style>
+
+  <script>
+    // 문서 준비 이벤트
+    window.onload = function () {// 윈도우의 로드가 끝나면 함수 실행
+      let output = '';
+      // 문자열에서 더하기 대입 연산사 사용시 앞의 내용이 그대로 추가
+      output += '<ul>';// output('') + '<ul>' -> output('<ul>')
+      output += '<li>html5</li>';// output('<ul>') + '<li>html5</li>' -> output('<ul><li>html5</li>')
+      output += '<li>css3</li>';
+      output += '<li>javascript</li>';
+      output += '<li>react</li>';
+      output += '</ul>';
+
+      document.body.innerHTML = output;
+    }
+  </script>
+</head>
+
+<body>
+  <!-- 
+  <ul>
+    <li>html5</li>
+    <li>css3</li>
+    <li>javascript</li>
+    <li>react</li>
+  </ul> 
+
+  <script>
+    let output = '';
+    // 문자열에서 더하기 대입 연산사 사용시 앞의 내용이 그대로 추가
+    output += '<ul>';// output('') + '<ul>' -> output('<ul>')
+    output += '<li>html5</li>';// output('<ul>') + '<li>html5</li>' -> output('<ul><li>html5</li>')
+    output += '<li>css3</li>';
+    output += '<li>javascript</li>';
+    output += '<li>react</li>';
+    output += '</ul>';
+
+    document.body.innerHTML = output;
+    /*
+      변수 초기화
+      let txt = ''; 문자열
+      let num = 0; 숫자
+      let boo = false; 불리언
+      let obj = null; 객체
+    */
+  </script>
+  ->
+</body>
+
+</html>
