@@ -1,0 +1,53 @@
+<html>
+
+<body>
+  <h2>함수Ex4</h2>
+  <script>
+    //매개 변수 없ㅇ ㅣ함수 호출시 내용이 순차적으로 출력
+
+    let num = 0; // 숫자로 초기화
+    const 과일 = () => {
+      let msg = '';
+
+      num++;
+
+      switch (num) {
+        case 1:
+          msg = '고구마';
+          break;
+        case 2:
+          msg = '사과';
+          break;
+        case 3:
+          msg = '포도';
+          break;
+        case 4:
+          msg = '귤';
+          break;
+        default:
+          msg = 'END';
+          break;
+      }
+      console.log(msg);
+    }
+
+    과일(); 과일(); 과일(); 과일(); 과일(); 과일();
+
+  </script>
+  <!-- 
+  <script>
+    //매개 변수 없ㅇ ㅣ함수 호출시 내용이 순차적으로 출력
+    const 과일 = () => {
+      console.log('고구마');
+      console.log('사과');
+      console.log('포도');
+      console.log('귤');
+    }
+
+    과일(); //고구마
+
+  </script>
+   -->
+</body>
+
+</html>

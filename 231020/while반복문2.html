@@ -1,0 +1,19 @@
+<html>
+
+<body>
+  <h2>while반복문2</h2>
+  <script>
+    let i = 0;
+    while (true) { // 무한 반복. 한계가 설정되지 않았기 때문에 '반드시' 빠져나올 수 있는 조건 필요.
+      console.log(i++);
+
+      if (i === 5) {
+        console.log(`여기서 멈춤 ${i}`);
+        break;
+      }
+      console.log(`변수 i: ${i}`);
+    }
+  </script>
+</body>
+
+</html>

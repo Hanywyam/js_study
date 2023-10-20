@@ -1,0 +1,32 @@
+<html>
+
+<body>
+  <h2>함수function3 - return</h2>
+  <!-- 
+      return 키워드
+      함수 안에서 선언된 변수나 값의 경우 외부에서 접근 불가능
+      1. 리턴 키워드를 이용해 호출한 곳으로 반환
+      2. 함수 실행 후 결과를 다시 얻고자 할 때 사용
+      3. 함수 종료를 위해 사용
+
+      funtion fn(x) {
+        실행문;
+        return; 함수 강제 종료. 이 다음 구문 실행 X
+        return 반환값; 반환값을 데이터로 반환.
+      }
+     -->
+  <script>
+    function 과일() {
+      console.log('사과');
+    }
+    과일();
+
+    function fruits() {
+      // '타이백 귤'; 함수가 호출되면 함수 내에서만 데이터를 가지기 때문에 undefined
+      return '타이백 귤'; //호출한 곳으로 데이터 반환 후 함수 종료.
+    }
+    console.log(fruits());
+  </script>
+</body>
+
+</html>

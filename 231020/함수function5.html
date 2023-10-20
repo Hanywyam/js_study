@@ -1,0 +1,59 @@
+<html>
+
+<body>
+  <h2>함수function5</h2>
+  <h3>화살표 함수</h3>
+  <!-- 
+      ES6+ 이상 사용
+      함수 표현식(익명 함수)에서만 사용 가능
+      this, arguments, new 키워드 사용 어려움
+      본문이 여러 줄인 경우 {} 사용 권장
+      { } 사용시 반드시 return 키워드를 통해 반환
+
+      변수명 = () => 실행문; 매개변수가 없는 경우 반드시 () 작성
+      변수명 = para1, para2 => { // 매개변수가 있는 경우 () 생략 가능
+        실행문;
+        return 반환값;
+      }
+     -->
+  <script>
+    const obj1 = function () {
+      console.log('함수 표현식으로 작성된 익명 함수')
+    }
+    obj1();
+
+    console.log('--- 한 줄 일 때 ---');
+    const obj2 = () => console.log('함수 표현식으로 작성된 화살표 함수');
+    obj2();
+
+    console.log('-------');
+    const obj3 = function (n) {
+      return n * 5; //리턴 키워드를 통해 호출했던 곳으로 값 반환
+    }
+    console.log(obj3(10));
+
+    const obj4 = n => n * 2; // 한줄일 때는 return 키워드가 생략되어 있으므로 작성하지 않아도 값 반환.
+    console.log(obj4(22));
+
+    console.log('-------');
+    // 3개의 매개 변수를 받아 연산 후 콘솔에 출력
+    const obj5 = (a, b, c) => a + b + c;
+    console.log(obj5(10, 5, 3));
+
+    // 3개의 매개 변수를 받아 연산 후 콘솔에 출력. 콘솔 함수안에.
+    const obj6 = (a, b, c = 10) => console.log(a + b + c);
+    obj6(22, 3);
+
+    console.log('--- 여러 줄 일 때 ---');
+    const obj7 = (a, b) => {
+      return a + b //{}를 쓰고 줄바꿈을 한 경우 return 키워드를 작성해야 반환됨.
+    }
+    console.log(obj7(10, 20));
+
+    const obj8 = (a, b) => a + b;
+    console.log(obj8(10, 20));
+
+  </script>
+</body>
+
+</html>

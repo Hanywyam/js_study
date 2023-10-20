@@ -1,0 +1,48 @@
+<html>
+
+<body>
+  <h2>함수Ex3</h2>
+  <!-- 
+    입력한 언어에 따른 인사말 출력
+    정해진 언어 외 입력시 정해진 언어만 넣어주세요 출력
+   -->
+  <script>
+    const 인사말 = (lang) => {
+      let msg = '';
+      switch (lang) {
+        case '한국어':
+          // console.log('안녕하세요?');
+          msg = '안녕하세요?';
+          break;
+        case '영어':
+          // console.log('헬로우?');
+          msg = '헬로우?';
+          break;
+        case '중국어':
+          // console.log('니하오?');
+          msg = '니하오?';
+          break;
+        case '일본어':
+          // console.log('오하이오?');
+          msg = '오하이오?';
+          break;
+        default:
+          // console.log('정해진 언어만 넣어주세요');
+          msg = '정해진 언어만 넣어주세요';
+          break;
+      }
+      console.log(msg);
+    }
+
+    인사말('한국어')// '안녕하세요' 
+    인사말('영어');// 헬로우
+    인사말('중국어');// 니하오
+    인사말('일본어');// 오하이오
+    인사말('독일어');// 정해진 언어만 넣어주세요
+    인사말('프랑스어');// 정해진 언어만 넣어주세요
+
+    인사말(prompt('언어를 선택해 주세요'));
+  </script>
+</body>
+
+</html>

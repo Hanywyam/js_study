@@ -1,0 +1,32 @@
+<html>
+
+<body>
+  <!-- 
+      0~100 중에 3의 배수만 출력
+      40 이상인 경우 break 키워드를 사용하여 벗어남.
+     -->
+  <script>
+    let total = '';
+    for (let i = 0; i <= 100; i += 3) {
+      if (i >= 40) {
+        break;
+      }
+      total += i + ', ';
+    }
+    document.body.innerHTML = total;
+  </script>
+
+  <!-- 내가 쓴 js -->
+  <script>
+    for (let i = 0; i <= 100; i++) {
+      if (i % 3 === 0) {
+        if (i >= 40) {
+          break;
+        }
+        console.log(i);
+      }
+    }
+  </script>
+</body>
+
+</html>

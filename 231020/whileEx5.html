@@ -1,0 +1,37 @@
+<html>
+
+<body>
+  <h2>whileEx5</h2>
+  <!-- 1부터 몇까지 더해야 3000을 넘길 수 있는지 -->
+  <script>
+    let i = 1;
+    let sum = 0;
+    while (true) {
+      sum += i;
+      if (sum > 3000) {
+        break;
+      }
+      i++;
+    }
+    console.log(`1부터 ${i}까지 더하면 ${sum}으로 3000을 넘긴다.`);
+  </script>
+
+  <!-- 내가 쓴 js
+  <script>
+    let i = 1;
+    let total = 0;
+    while (true) {
+      while (total <= 3000) {
+        total += i;
+        console.log(total);
+        break;
+      }
+      i++;
+      total > 3000;
+    }
+    console.log(`1부터 ${i}까지 더하면 ${total}으로 3000을 넘긴다.`);
+  </script>
+   -->
+</body>
+
+</html>

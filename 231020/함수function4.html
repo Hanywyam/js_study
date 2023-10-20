@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>함수function4</title>
+  <style>
+    .btn {
+      border: 3px solid #000;
+      width: 200px;
+      margin: 10px auto;
+      padding: 10px;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #000;
+      color: #fff;
+    }
+  </style>
+  <!-- javascript 작성 위치 : 헤더 영역에서 마지막 -->
+  <script>
+    /*  document.getElementById(); 아이디 선택자 탐색
+    document.getElementById('btn2').onclick = function () {
+      getAlert2();
+    }
+    */
+
+    // 문서 준비 이벤트 : 문서가 불러와지면 함수 호출
+    window.onload = function () {
+      const btn2 = document.getElementById('btn2');
+      console.log(btn2);
+      // btn2.onclick = function () {
+      //   getAlert2();
+      // }
+
+      //화살표 함수
+      btn2.onclick = () => getAlert2();
+    }
+  </script>
+</head>
+
+<body>
+  <div class="btn btn1" onclick="getAlert1()">선언함수 호출</div>
+  <div class="btn" id="btn2">익명함수 호출</div>
+
+  <!-- javascript 작성 위치 : 바디 영역에서 마지막 -->
+  <script>
+    function getAlert1() {
+      alert('선언 함수로 호출');
+      alert('두번째 알림');
+    }
+    const getAlert2 = function () {
+      alert('함수 표현식으로 호출');
+      return; //함수 종료. 뒤에 값은 실행되지 않음.
+      alert('두번째 알림');
+    }
+  </script>
+</body>
+
+</html>

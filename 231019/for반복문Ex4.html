@@ -1,0 +1,35 @@
+<html>
+
+<body>
+  <!-- for반복문Ex4
+    2~9단 출력
+    -->
+  <script>
+    let result = '';
+    for (let i = 2; i <= 9; i++) { //2~9반복
+      // document.write(`<h3>--- ${i}단 ---</h3>`); 옛날코드
+      result += `<h3>--- ${i}단 ---</h3>`;
+
+      for (let k = 1; k <= 9; k++) {
+        result += `${i} * ${k} = ${i * k}<br>`;
+      }
+    }
+    document.body.innerHTML = result;
+  </script>
+  <!-- 내가 쓴 js
+  <script>
+    let sum = '';
+    let k = 0;
+    for (k = 2; k <= 9; k++) {
+      for (let i = 1; i <= 9; i++) {
+        let total = k * i;
+        sum += `<p>${k} * ${i} = ${total}</p>`;
+      }
+    }
+    document.body.innerHTML = (`<h2>---- ${k}단 ----</h2>`);
+    document.body.innerHTML = sum;
+  </script>
+   -->
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<html>
+
+<body>
+  <h2>whileEx4</h2>
+  <!-- 2~9단 구구단 출력 -->
+  <script>
+    let i = 2;
+    let k = 1;
+    while (i <= 9) {
+      console.log(`-- ${i}단 --`);
+      // console.log('${i} * 1 = ${ i * 1 }')
+
+      while (k <= 9) {
+        console.log(`${i} * ${k} = ${i * k}`);
+        k++;
+      }
+      i++;
+      k = 1; //1로 재할당해서 k값 초기화
+    }
+  </script>
+
+  <!-- 내가 쓴 js
+  <script>
+    let result = '';
+    let i = 2;
+    while (i <= 9) {
+      result += `<h3>--- ${i}단 ---</h3>`;
+      for (let k = 1; k <= 9; k++) {
+        result += `${i}*${k}=${k * i}<br>`;
+      }
+      i++;
+    }
+    document.body.innerHTML = result;
+  </script>
+   -->
+</body>
+
+</html>

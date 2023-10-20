@@ -1,0 +1,36 @@
+<html>
+
+<body>
+  <h2>whileEx1</h2>
+  <!-- 
+      구구단 8단
+      사용자가 입력한 구구단 출력
+     -->
+  <script>
+    let num = prompt('2~9 사이의 숫자를 입력하세요');
+    let i = 1;
+    while (i <= 9) {
+      console.log(`${num}*${i}=${i * num}`)
+      // console.log(`8*${i}=${i * 8}`)
+      i++;
+    }
+  </script>
+
+  <!-- 내가 쓴 js 
+  <script>
+    let result = '';
+    let k = 1;
+    let msg = prompt('값을 입력하세요');
+    while (k <= 9) {
+      if (msg) {
+        result += `${msg}*${k}=${msg * k}<br>`
+        k++;
+      }
+    }
+    document.body.innerHTML = result;
+
+  </script>
+  -->
+</body>
+
+</html>
