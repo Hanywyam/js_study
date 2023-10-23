@@ -1,0 +1,31 @@
+<html>
+
+<body>
+  <h2>객체Ex3</h2>
+  <!-- 
+    객체 생성과 동시에 속성 대입
+    계절 과일 이름, 색상, 가격, `ㅇㅇ의 가격은 ㅇㅇ로 맛있습니다.` 함수
+
+    속성 존재 여부 확인
+    color, size
+  -->
+  <script>
+    const fruits = {
+      name: '사과',
+      color: 'red',
+      price: 3500,
+      output() {
+        console.log(`${this.name}의 가격은 ${this.price}로 맛있습니다.`)
+      }
+    }
+    console.log(fruits);
+    fruits.output();
+
+    //key
+    console.log('color' in fruits); // true
+    console.log('size' in fruits); // false
+
+  </script>
+</body>
+
+</html>

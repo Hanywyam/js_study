@@ -1,0 +1,26 @@
+<html>
+
+<body>
+  <h2>setTimeout</h2>
+  <script>
+    // setTimeout() 함수 : 가장 대표적인 비동기 함수
+    // '3초 뒤에 실행 됨.' 콘솔
+    const txt = () => console.log(`3초 뒤에 실행 됨`)
+    setTimeout(txt, 3000);
+
+    setTimeout(() => console.log(`3초 뒤에 실행 됨`), 3000);
+
+    const obj = () => console.log(`3초 뒤에 실행 됨`);
+    setTimeout(obj, 3 * 1000);
+
+    const once = setTimeout(() => {
+      console.log('2초 뒤에 실행 됨')
+    }, 4000 / 2);
+
+    // clearTimeout(); setTimeout() 중단
+    clearTimeout(once); //once 함수는 실행되지 않음.
+
+  </script>
+</body>
+
+</html>

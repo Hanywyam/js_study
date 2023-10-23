@@ -1,0 +1,28 @@
+<html>
+
+<body>
+  <h2>콜백함수1</h2>
+  <p>콜백함수 callback function</p>
+  <p>함수의 매개변수parameter로 함수를 넘기는 것</p>
+
+  <script>
+    function addFn(num1, num2) { // 콜백 함수
+      num1();
+      num2();
+    }
+
+
+    const fn1 = () => console.log('fn1 함수');
+    const fn2 = function () {
+      console.log('fn2 함수')
+    }
+    function fn3() {
+      console.log('fn3 함수')
+    }
+
+    addFn(fn1, fn2); // 함수 표현식(리터럴)
+    addFn(fn3, fn2); 
+  </script>
+</body>
+
+</html>

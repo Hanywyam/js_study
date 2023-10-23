@@ -1,0 +1,33 @@
+<html>
+
+<body>
+  <h2>객체Object6</h2>
+  <!-- 
+      객체의 속성(프로퍼티) 확인
+      'key' in 객체명;
+      => true, false 반환
+     -->
+  <script>
+    const obj = {
+      id: 1,
+      name: '객체',
+      done: true,
+      output() { console.log('객체 메서드') }
+    }
+
+    console.log(obj);
+    console.log(obj.id);
+    console.log(obj.name);
+
+    // 객체의 키 확인: obj 객체 안에 name키 확인 후 true | false로 반환.
+    console.log('name' in obj); // true
+    console.log('age' in obj); // false
+    console.log('done' in obj); // true
+
+    // 오브젝트 속성으로 done이 boolean 값인 경우 비교 연산자로는 존재의 확인이 불가능.
+    console.log(obj.done === false); // false
+    console.log(obj.done === true); // true
+  </script>
+</body>
+
+</html>

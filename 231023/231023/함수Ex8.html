@@ -1,0 +1,25 @@
+<html>
+
+<body>
+  <script>
+    // 구구단 출력
+    const gugudan = (x, count = 9) => {
+      if (x >= 2 && x <= 9) {
+        console.log(`-- ${x}단 --`);
+        for (let i = 1; i <= count; i++) {
+          console.log(`${x} * ${i} = ${x * i}`);
+        }
+      } else {
+        console.log('2~9단의 숫자만 입력하세요')
+      }
+
+    }
+
+
+    gugudan(9);// 9단 출력
+    gugudan(4, 3);// 4단의 3개만 출력
+    gugudan(12, 6);// 2~9단의 숫자만 입력하세요
+  </script>
+</body>
+
+</html>

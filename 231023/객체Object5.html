@@ -1,0 +1,48 @@
+<html>
+
+<body>
+  <h2>객체Object5</h2>
+  <!-- 
+    let 변수 = 문자열, 숫자, boolean, null, undefined, ... 원시형 데이터
+    const 함수 = fucntion() {}; 함수 표현식(리터럴)
+    var 객체 = {}; 객체 표현식(리터럴)
+    let 배열 = 배열;
+
+    객체 생성
+    const 객체명1 = {};
+
+    생성자함수 방식으로 생성
+    const 객체명2 = new 객체();
+    1. 함수의 첫 글자는 대문자로 시작
+    2. 반드시 new 키워드를 붙여 실행
+    동일한 객체를 간단하게 여러 개 생성할 수 있으며 템플릿처럼 사용 가능
+   -->
+  <script>
+    let num = Number(10); //js가 만들어 놓은 함수 사용.
+    console.log(typeof num); //number
+    num = new Number(10); // => '숫자'객체
+    console.log(typeof num); //object
+    console.log(num);
+
+
+    // key 설정
+    function Menu(name, price, size = 'tall') {
+      this.name = name;
+      this.price = price;
+      this.size = size;
+      this.order = function () {
+        console.log(`주문한 커피는 ${size}사이즈의 ${this.name}이고 가격은 ${this.price}원 입니다.`)
+      }
+    }
+
+    // 사용
+    let coffee = new Menu('아메리카노', 4000);
+    coffee.order();
+    coffee = new Menu('카페라떼', 5000);
+    coffee.order();
+
+    //this는 mess obj, data obj를 사용할때 씀. 외에는 잘 사용안함.
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<html>
+
+<body>
+  <h2>객체Ex1</h2>
+  <!-- 
+  1. 빈 객체 생성 후 객체 표현식(리터럴) 방식으로 프로퍼티 추가 
+  2. 객체 속성: 커피이름, 가격, 사이즈, 메서드(콘솔에 주문신 커피는 ㅇㅇ이며 가격은 ㅇㅇ입니다.)
+  3. 콘솔에 메서드 출력
+ -->
+  <script>
+    const obj = {}; //빈 객체
+    obj.name = '아메리카노';
+    obj.price = 4000;
+    obj.size = 'tall';
+    obj.output = function () {
+      console.log(`주문한 커피는 ${this.size} ${obj.name}이며, 가격은 ${this.price}입니다.`)
+    }
+    console.log(obj);
+    obj.output();
+
+  </script>
+
+  <!-- 내가 쓴 js
+  <script>
+    let coffee = '에스프레소', price = 3000, size = 'tall';
+    const Menu = {
+      coffee,
+      price,
+      size,
+      option: function (coffee, price) {
+        console.log(`주문신 커피는 ${size}사이즈의 ${coffee}이며 가격은 ${price}입니다.`)
+      }
+    }
+    console.log(Menu);
+    Menu.option('아메리카노', '4000');
+  </script>
+   -->
+</body>
+
+</html>

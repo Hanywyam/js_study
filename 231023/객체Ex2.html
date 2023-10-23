@@ -1,0 +1,28 @@
+<html>
+
+<body>
+  <h2>객체Ex2</h2>
+  <!-- 
+      객체 생성과 동시에 프로퍼티 대입. 커피명, 가격, 사이즈 콘솔 출력 메서드
+      주문한 커피는 ㅇㅇ이고 가격은 ㅇㅇ원이고 사이즈는 ㅇㅇ입니다. 콘솔 출력
+      전역 변수 사용.
+     -->
+  <script>
+    let coffee = '라떼', price = 5000, size = 'tall';
+    const Menu = {
+      coffee,
+      price,
+      size: 'small',
+      output() {
+        // this.size == 현재 객체(Menu)의 size 속성 참조
+        // price == 변수에서 직접 참조
+        console.log(`주문한 커피는 ${Menu.coffee}이고 가격은 ${price}원이고 사이즈는 ${this.size}입니다.`);
+      }
+    }
+    console.log(Menu);
+    Menu.output();
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<html>
+
+<body>
+  <h2>객체Object2</h2>
+  <!-- 
+    객체Object 특징
+      1. 키와 값에 인용 부호 작성. 키는 생략 가능하나 값이 문자열인 경우 반드시 작성 
+      2. 식별자의 이름은 키워드와 같은 이름 작성을 권장하진 않으나 객체 안의 키 이름은 괜찮음
+      3. 객체 안에 프로퍼티로 작성된 함수는 method라고 함
+      4. 키 이름에 띄어쓰기가 가능하나 인용 부호를 반드시 작성. 띄어쓰기가 있는 경우 점 표기법으로 읽지 못함. [""] 방식으로 읽어야 함
+      5. 단축 프로퍼티 사용 가능 키와 값이 같으면 값 생략 가능
+      
+      Date = {
+        getFullYear : fucntion() {}
+      }
+      new Date().getFullTear();
+   -->
+
+  <script>
+    const menu = {
+      'let': '변수',// key : value -> property
+      "new": 1,
+      string: '아메리카노',
+      boolean: false,
+      array: [1, 2, 4, 6],
+      method: function () { },
+      '한 글': '키에 한글 사용 가능하며 띄어쓰기도 가능하나 반드시 인용부호를 붙여야 함'
+    }
+
+    console.log(typeof menu);
+    console.log(menu);
+    console.log(menu.let, menu.boolean);
+    // console.log(menu.한 글);
+    // console.log(menu.'한 글');
+    console.log(menu['한 글']);// 띄어 쓰기가 있는 경우 대괄호 표기법으로 작성
+    console.log(menu['method']);
+
+    // delete 키워드 : 속성 제거
+    delete menu.array;
+    console.log(menu);
+    delete menu['한 글'];
+    console.log(menu);
+    console.log(menu['한 글']);// undefined
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<html>
+
+<body>
+  <h2>비동기 통신</h2>
+
+  <script>
+    /* 
+    // 동기적 통신
+    function fn1() {
+      console.log('동기: fn1 호출')
+    }
+    fn1();
+    console.log('= 순차적으로 호출');
+
+    // 비동기적 통신
+    function fn2() {
+      setTimeout(() => console.log('비동기: fn2 호출'), 2000)
+    }
+    fn2();
+    console.log('비동기 통신이기 때문에 작성 순서와 호출 순서가 다름')
+     */
+
+    function fn3(x, y, z) {
+      const obj = () => {
+        const sum = x + y;
+        z(sum); // == 함수
+      }
+      setTimeout(obj, 3000)
+    }
+
+    // fn3(5,7,()=>{});
+
+  </script>
+</body>
+
+</html>

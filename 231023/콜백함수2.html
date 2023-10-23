@@ -1,0 +1,48 @@
+<html>
+
+<body>
+  <h2>콜백함수2</h2>
+  <h3>setTimeout(콜백함수, 시간);</h3>
+  <p>- 일정 시간 후 한번만 실행하는 자바스크립트 내장 함수</p>
+  <p>- 가장 대표적인 비동기 함수</p>
+  <a href="https://developer.mozilla.org/ko/docs/Web/API/setTimeout" style="font-size: 2rem;">setTimeout()</a>
+  <script>
+
+    setTimeout(function () { //함수 안에 함수를 매개변수로 넣음. == 2초 기다렸다가 함수 한번만 실행.
+      console.log(`재미있는 자바스크립트!`);
+    }, 3000); // css 1초 == 1s, js 1초 == 1000
+
+
+
+
+    const study = () => { // --- 외부 함수 또는 부모 함수 ---
+
+      let lang = '자바스크립트';
+      /* 
+      방법 1)
+      setTimeout(() => {
+        console.log(`재미있는 ${lang}!!!`)
+      }, 1000);
+      setTimeout(() => {
+        console.log(`재미있는 ${lang}!!!`)
+      }, 2000);
+      setTimeout(() => {
+        console.log(`재미있는 ${lang}!!!`)
+      }, 5000);
+      
+      
+      방법 2) */
+
+      // 함수를 변수로 만든 후 대입해서 매개변수로 사용. -> 코드가 깔끔하고, 재사용이 용이.
+      // funny == 클로저 함수: 외부 함수의 스코프(범위)에 접근할 수 있는 내부 함수 (https://developer.mozilla.org/ko/docs/Web/JavaScript/Closures)
+      const funny = () => console.log(`재미있는 ${lang}!!!`)
+      setTimeout(funny, 1000);
+      setTimeout(funny, 2000);
+      setTimeout(funny, 5000); // --- 내부 함수 또는 자식 함수 ---
+    }
+
+    study();
+  </script>
+</body>
+
+</html>

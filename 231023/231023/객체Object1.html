@@ -1,0 +1,55 @@
+<html>
+
+<body>
+  <h2>객체Object1</h2>
+  <ul>
+    <li><a href="https://ko.javascript.info/object" target="_blank">JavaScript Info</a></li>
+    <li><a href="https://developer.mozilla.org/ko/docs/Learn/JavaScript/Objects" target="_blank">MDN</a></li>
+  </ul>
+
+  <script>
+    /*
+    객체 Object
+      객체, 함수, 배열, 정규 표현식 등 변형 가능한 데이터들의 집합
+      객체 종류: 코어 객체(Array, Math, Date, Number, String ....), DOM 객체, BOM 객체 ...
+
+      기본 구조
+      {
+        "키(key)" : 값(value), <- 속성(property)
+        키(key) : 값(value),
+        키(key) : 값(value),
+        키(key)
+      }
+      key는 문자형, value는 모든 자료형(함수, 배열, 객체, 변수, 문자열, null...)이 가능
+
+      함수 표현식 const fn = function () {}
+      객체 표현식 const obj = {}
+    */
+
+    // 객체 표현식(리터럴) 방식으로 생성
+    let obj1 = {};// 빈 객체 대입
+    // obj1 = [];
+
+    // 점(.) 표기법으로 속성(프로퍼티) 추가
+    obj1.coffee = '아메리카노';// 객체명.키=값(문자열);
+    obj1.price = 4500;// 객체명.키=값(숫자)
+    obj1.order = () => console.log('주문한 커피는 아이스입니다.');// 객체명.키=값(함수)
+    console.log(typeof obj1, obj1);
+
+    // 속성 읽기
+    console.log(obj1.coffee);
+    // window.alert('객체예요');
+
+    // new 생성자 함수 키워드 이용. 객체 선언과 동시에 대입
+    let obj2 = new Object();// 빈 객체 생성
+    obj2.tea = '녹차';
+    obj2.price = 4000;
+    obj2.order = () => console.log(`주문한 차는 ${obj2.tea}입니다`);
+
+    console.log(typeof obj2, obj2);
+    obj2.order();// 객체 내부에 있는 함수(메서드) 호출
+    console.log(obj2.price);
+  </script>
+</body>
+
+</html>

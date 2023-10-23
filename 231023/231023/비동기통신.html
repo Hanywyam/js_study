@@ -1,0 +1,82 @@
+<html>
+
+<body>
+  <h2>비동기통신</h2>
+  <script>
+    /*
+    // 동기적 통신
+    function fn1() {
+      console.log('동기 fn1 호출')
+    }
+    fn1();
+    console.log('순차적으로 호출');
+
+    // 비동기적 통신
+    function fn2() {
+      setTimeout(() => console.log('fn2 호출'), 2000)
+    }
+    fn2();
+    console.log('비동기 통신이기 때문에 순서 다름');
+    */
+
+    function fn3(x, y, z) {
+      const obj = () => {
+        const sum = x + y;
+        z(sum);//함수
+      }
+
+      setTimeout(obj, 3000);
+    }
+
+    function fn4(x, z) {
+      setTimeout(() => {
+        const sum = x * 2;
+        z(sum);
+      }, 1000)
+    }
+
+    function fn5(y, z) {
+      setTimeout(() => {
+        const sum = y ** 2;
+        z(sum)// ()=>console.log(`fn5 : ${}`)
+      }, 2000);
+    }
+
+    /*
+    fn3(5, 7, (sum) => console.log(`fn3 : ${sum}`));
+    fn4(3, (item) => console.log(`fn4 : ${item}`));
+    fn5(12, (item) => console.log(`fn5 : ${item}`));
+    */
+
+    /* 콜백 지옥
+    fn3(10, 30, (item3) => {
+      console.log(`fn3 : ${item3}`);
+      fn4(item3, (item4) => {
+        console.log(`fn4 : ${item4}`);
+        fn5(item4, (item5) => {
+          console.log(`fn5 : ${item5}`);
+        })
+      })
+    });
+    */
+
+    const fn6 = (num1, num2) => {
+      return new Promise(res => {
+        const item3 = num1 + num2;
+        console.log(`fn6 : ${item3}`);
+        res(item3);
+      });
+    }
+    const fn7 = (num) => {
+      return new Promise(res => {
+        const item4 = num * 2;
+        console.log(`fn7 : ${item4}`);
+        res(item4);
+      })
+    }
+
+    fn6(30, 10).then(item3 => fn7(item3));
+  </script>
+</body>
+
+</html>

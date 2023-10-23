@@ -1,0 +1,45 @@
+<html>
+
+<body>
+  <h2>객체Object3</h2>
+  <script>
+    // 강아지 관련 객체 : name, age, 특징, 취미 ...
+
+    let name = '흰둥이', age = 3, hobby = '산책';
+    let dog = {
+      // 전역 변수에서 값을 가져와 객체에 적용 
+      name: name,
+      age: age,
+      특징: function () {
+        console.log(`${dog.name}는 ${dog.hobby}를 좋아합니다.`)
+      },
+      gender: '남',
+      hobby: hobby
+    }
+    console.log(dog);
+    console.log(dog.name);
+    dog.특징();
+
+
+    let cat = {
+      // 단축 프로퍼티: 키와 값이 같으면 값 생략 가능.
+      name: '얌이',
+      age,
+      hobby: '낮잠',
+
+      // function 키워드 생략 가능
+      특징(item = '낚시대') {
+        console.log(`${this.name}는 ${item}를 좋아합니다.`)
+      }
+    };
+
+    console.log(cat);
+    console.log(cat, age);
+    cat.특징();
+    cat.특징('캣닢가루');
+    cat.특징('간식(을)');
+
+  </script>
+</body>
+
+</html>
