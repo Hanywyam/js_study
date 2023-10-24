@@ -1,0 +1,49 @@
+<html>
+
+<body>
+  <h2>배열-Array</h2>
+  <h4>배열 == 변수의 집합</h4>
+  <p>여러 개의 데이터를 담을 수 있는 특별한 변수로 인덱스 변호로 관리</p>
+  <p>배열의 값은 변할 수 있음</p>
+  <p>배열 작성 -> [0,1,2]</p>
+  <p>배열 접근(읽기) -> 배열명[인덱스번호]; 인덱스 번호는 0부터 시작</p>
+  <p>배열 표현식(리터럴)</p>
+  <p>const a = [];</p>
+  <p>const b = {}; 객체</p>
+  <p>const c = () => {} 함수</p>
+  <p>const d = '';</p>
+
+  <script>
+    //생성
+    let arr1 = []; // 빈 배열 생성 배열로 초기화.
+    console.log(arr1);
+    console.log(arr1.length); // 배열이 가지고 있는 요소 수 0
+    console.log(arr1[0]); // undefined. 존재하지 않는 배열 요소에 접근
+
+    console.log('-----');
+    let arr2 = [1, 2, 3];
+    console.log(`arr2:${arr2}`) //1,2,3
+    console.log(arr2[2]); // 3
+    console.log(arr2.length); // 배열 요소 수 3
+
+    console.log('-----');
+    let arr3 = [1, 'string', true, function () { }, {}, arr2, null, undefined];
+    console.log(`arr3:${arr3}`);
+    console.log(typeof arr3); // object (안에 속하기 때문에)
+    console.log(arr3[2]); //true
+    console.log(arr3[5]); //arr2 == (3) [1, 2, 3] == 변수. 변수값 출력
+    console.log(arr3.length); // 배열 요소 수 8
+    console.log(arr3[1].length); // 6. 해당 인덱스 번호 요소의 글자 수
+
+    console.log('-----');
+    let arr4 = [1, 2, 3, 4];
+    console.log(arr4[4]); // undefined
+    arr4[4] = 10; //인덱스 번호[4]의 위치에 10 추가
+    console.log(arr4);
+    arr4[0] = 'string';
+    console.log(arr4);
+    console.log(arr4[2 + 1]); //인덱스 [3]. 연산도 가능.
+  </script>
+</body>
+
+</html>

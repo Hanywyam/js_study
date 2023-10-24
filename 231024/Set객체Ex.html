@@ -1,0 +1,31 @@
+<html>
+
+<body>
+  <h2>Set객체Ex</h2>
+  <h3>로또 생성기</h3>
+  <script>
+    // 1~45개 중 6개. 중복X.
+    // Math. 랜덤
+    /* 
+        let lotto = new Set();
+        new Set().add(1);
+        lotto.add(Math.floor(Math.random() * 45 + 1));
+        lotto.add(Math.floor(Math.random() * 45 + 1));
+        lotto.add(Math.floor(Math.random() * 45 + 1));
+        lotto.add(Math.floor(Math.random() * 45 + 1));
+        lotto.add(Math.floor(Math.random() * 45 + 1));
+        lotto.add(Math.floor(Math.random() * 45 + 1));
+    
+        console.log(lotto);
+    */
+    let lotto = new Set();
+
+    for (let i = 0; lotto.size < 6; i++) {
+      lotto.add(Math.floor(Math.random() * 45) + 1);
+    }
+
+    console.log(lotto);
+  </script>
+</body>
+
+</html>

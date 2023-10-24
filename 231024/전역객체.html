@@ -1,0 +1,44 @@
+<html>
+
+<body>
+  <h2>전역객체</h2>
+  <p>모든 객체의 유일한 최상위 객체를 의미</p>
+  <ul>
+    <li>window 객체(브라우저 쪽)</li>
+    <li>global 객체(node.js 쪽)</li>
+  </ul>
+  <script>
+    // 브라우저
+    console.log(this === window); //true
+
+    // node
+    // this === global; true
+
+    /* 
+    전역 객체의 자식 객체(document, navigator...)를 사용할 때는 전역 객체인 window 생략 가능.
+
+    window.document.getElementById('id');
+    == document.getElementById('id');
+
+    window.alert();
+    == alert();
+    */
+
+    function naver(url) {
+      const location = { //객체 생성
+        //key : 값,
+        href: '이동할 사이트는 ',
+      }
+
+      alert(location.href + url);
+      location.href = url;
+      console.log(location);
+      window.location.href = url; // window 객체 안에 있는 location 객체의 href 속성이 적용되어 해당 페이지로 이동
+    }
+
+    // 함수 호출
+    naver('https://naver.com');
+  </script>
+</body>
+
+</html>

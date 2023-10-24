@@ -1,0 +1,54 @@
+<html>
+
+<body>
+  <!-- 배열Ex3
+      배열을 매개변수로 받아 합을 구하시오.
+      배열 빙자 함수? 함수 만들어서 호출...넘어려워유ㅠ
+
+      console.log(sum([11,2,3,5,10]));
+      console.log(sum([5,10]));
+     -->
+  <script>
+    /* 
+    function sum(num) {
+      let total = 0;
+      for (let i = 0; i < num.length; i++) {
+        total += num[i];
+      }
+      return total;
+    }
+    */
+
+    /* 
+    Array.prototype.reduce();
+    : 배열의 요소를 연산, 누적하여 반환하는 메서드
+      누산기(누적가능)가 포함되어 있으며 누적된 값 반환.
+
+      https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+      https://ko.javascript.info/array-methods#ref-778
+
+      arr.reduce(callback[, initialValue])
+      배열.reduce(콜백함수[,초기값]);
+      배열.reduce(function(){} [,초기값]);
+      배열.reduce(()=>{} [,초기값]);
+      
+      배열.reduce((누산기(accumulator), 현재값(currentValue)[,현재 인덱스(currentIndex), 원본 배열])=>{} [,초기값]);
+
+      초기값(initialValue) 
+      : 최초 호출에서 첫 번째 인수에 제공.
+        초기값을 제공하지 않으면 배열의 첫 번째 요소를 사용
+        빈 배열에서 초기값 없이 reduce()를 호출하면 오류가 발생
+    
+    */
+
+    const sum = (num) => {
+      const init = 0;
+      return num.reduce((total, current) => total + current, init);
+    }
+
+    console.log(sum([11, 2, 3, 5, 10]));
+    console.log(sum([5, 10]));
+  </script>
+</body>
+
+</html>

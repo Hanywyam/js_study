@@ -1,0 +1,32 @@
+<html>
+
+<body>
+  <h2>Set객체 == 생성자 함수</h2>
+  <h3>new Set()</h3>
+  <p>자바 스크립트 내장 객체이자 생성자 함수로 중복되지 않는 값을 반환</p>
+  <script>
+    const one = new Set(); //빈 객체 생성
+
+    //요소 추가 .add
+    new Set().add(1);
+    one.add(2);
+    one.add(3);
+    one.add(2); //중복 값은 무시
+    one.add(1);
+    console.log(one)
+
+    //요소 확인 .has : true | false 반환
+    console.log(one.has(1)); //true
+    console.log(one.has(5)); //false
+
+    //요소 갯수 .size
+    console.log(one.size); // 3
+
+    //요소 전체 삭제 .clear
+    one.clear();
+    console.log(one); //0. Set(0) {size: 0}
+
+  </script>
+</body>
+
+</html>
