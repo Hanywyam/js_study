@@ -1,0 +1,48 @@
+<html>
+
+<body>
+  <h2>spread전개구문</h2>
+  <!-- 
+    https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+      
+    ... 전개구문
+    : 배열, 문자열, 객체 등을 복사해 반환
+      키-값의 쌍으로 객체 확장 반환 가능
+      뒤에 속성(프로퍼티)을 추가하면 갱신 됨.
+
+      함수 호출: myFn(...iterableObj);
+      배열 리터럴과 문자열: [...iterableObj, '4', '문자', 6]
+      객체 리터럴: let objClone = { ...obj };
+  -->
+
+  <script>
+    const coffee = ['아메리카노', '카페라떼', '카페모카', '바닐라라떼'];
+    const arr1 = coffee.concat(); //배열이나 객체를 복사해 새로운 배열로 반환
+    const arr2 = [...coffee];
+    // 둘다 객체 복사 후 새로운 배열 반환 방법임.
+
+    console.log(arr1);
+    console.log(arr2);
+
+    console.log('-----');
+    //복사 + 값 추가
+    const arr3 = coffee.concat('생강차', '유자차');
+    const arr4 = [...coffee, '생강차', '유자차'];
+    console.log(arr3);
+    console.log(arr4);
+
+    console.log('-----');
+    const dog = {
+      name: '마루',
+      age: 4
+    }
+    const animal1 = { ...dog };
+    const animal2 = { ...dog, hobby: '산책', age: 10 };
+    console.log(animal1); // 복사해서 반환
+    console.log(animal2); // 속성을 작성하면 갱신, 추가됨
+    console.log(dog); // 원본 그대로
+
+  </script>
+</body>
+
+</html>

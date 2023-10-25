@@ -1,0 +1,142 @@
+<html>
+
+<body>
+  <h2>배열Ex6</h2>
+  <!-- 
+  현재 년 월 일 요일 AM/PM 시 분 초
+  24시간제 X -> 12시간제 :조건식 이용하면 반으로 나올수잇음.
+  (new.days keyword => 기본 24시간)
+  
+  ex: 2023년 10월 25일 수요일 AM 11 : 02 : 15
+
+  1초에 한번씩 실행
+  setTimeout(function() {}, 시간); 지정 시간 후 한 번만 실행
+  setInterval(콜백함수, 시간); 지정시간마다 실행
+
+  즉시실행 함수
+    ()();
+    (());
+ -->
+  <script>
+    (function time() {
+
+      const today = new Date();
+      let year = new Date().getFullYear();
+      let month = today.getMonth() + 1;
+      let date = today.getDate();
+
+      /* 요일: 3 -> 이 숫자로 나옴.      
+      let day = today.getDay();
+      
+      해결 1)
+      let day = ['일', '월', '화', '수', '목', '금', '토'];
+      let i = today.getDay();
+      day = day[i];
+      
+      해결 2) */
+      let day = ['일', '월', '화', '수', '목', '금', '토'][today.getDay()];
+      let hour = today.getHours();
+      let min = today.getMinutes();
+      let sec = today.getSeconds();
+
+      /* AM PM: if문으로 12 <=
+      let ampm = '';
+      if (hour >= 12) {
+        ampm = '오후';
+      } else {
+        ampm = '오전';
+      }                                   */
+
+      // 삼항연산자로 쓰기 true : false
+      const ampm = hour >= 12 ? '오후' : '오전';
+
+      // 두자리 숫자로 시간 변경 01 02 03...
+      //방법 1)
+      if (hour <= 9) {
+        hour = '0' + hour;
+      } else {
+        hour;
+      }
+      //방법 2)
+      min = min < 10 ? '0' + min : min;
+
+      //방법 3)
+      // .padStart (문자열길이(갯수), '채워넣을문자')
+      sec = sec.toString().padStart(2, '0');
+
+
+      const output = `${year}년 ${month}월 ${date}일 ${day}요일 ${ampm} ${hour}:${min}:${sec}`;
+      console.log(output);
+
+      /* 재귀함수
+        : 함수 내부에서 자기 자신을 호출하는 함수
+          재귀함수 사용시 종료 조건을 반드시 설정해야 하며, 그렇지 않으면 무한 호출.
+      */
+      setTimeout(time, 1000);
+    })();
+
+    /*
+    time();
+    setInterval(time, 1000);
+
+     => setInterval은 큐의 진행 방식으로인해 문제 발생 여부가 있어 사용하지 않음.
+
+     큐 Queue
+      : 먼저 집어 넣은 데이터가 먼저 나오는 FIFO(First In First Out)구조로 저장하는 형식
+        [출처] 큐 Queue, 스택 Stack, 트리 Tree (비공개 카페)
+     */
+  </script>
+
+
+  <!-- 내가 쓴 js
+  =============================================== -->
+  <script>
+    console.log(new Date()); //현재 날짜 시간
+
+    const now = new Date();
+    const 년 = new Date().getFullYear();
+    const 월 = now.getMonth() + 1;
+    const 일 = now.getDate();
+    const 요일 = now.getDay();
+    const 시 = now.getHours();
+    const 분 = now.getMinutes();
+    const 초 = now.getSeconds();
+
+
+    let days = '';
+    switch (요일) {
+      case 0:
+        days = '일';
+        break;
+      case 1:
+        days = '월';
+        break;
+      case 2:
+        days = '화';
+        break;
+      case 3:
+        days = '수';
+        break;
+      case 4:
+        days = '목';
+        break;
+      case 5:
+        days = '금';
+        break;
+      case 6:
+        days = '토';
+        break;
+    }
+
+    let 오전오후 = '';
+    if (00 <= 시 && 시 <= 11) {
+      오전오후 = `AM ${시}`;
+    } else {
+      오전오후 = `PM ${시}`;
+    }
+
+    console.log(`${년}년 ${월}월 ${일}일 ${days}요일 ${오전오후}:${분}:${초}`);    
+  </script>
+</body>
+
+</html>

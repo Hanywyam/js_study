@@ -1,0 +1,39 @@
+<html>
+
+<body>
+  <h2>배열Array_forEach</h2>
+  <!-- 
+      https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+
+      Array.prototype.forEach()
+      : 각 배열 요소에 대해 제공된 함수를 한 번씩 실행
+
+      forEach(callbackFn, thisArg)
+      forEach((현재요소[,현재요소 인덱스, 호출한 배열])=>{})
+
+      반환값
+      : 없음 (undefined). -> 내의지로 없앤게 아님.
+     -->
+  <script>
+    const arr = [10, 20, 30, 50, 40];
+    //배열이 가지고있는 요소의 수만큼 순회하여 함수 적용 뒤 반환
+    arr.forEach(function (item, idx) {
+      console.log(`arr 배열 인덱스 번호 ${idx}, dythsms ${item}입니다.`);
+    })
+    console.log('------');
+    console.log('------');
+
+    const coffee = ['아메리카노', '카페라떼', '바닐라라떼', '에스프레소'];
+    console.log(coffee[0]);
+
+    console.log('------');
+    coffee.forEach(num => console.log(num));
+
+    console.log('------');  //익명 함수로 작성된 경우 호출은 나중에 작성되어야 함. 함수호이스팅.
+    const menu = item => console.log(item);
+    coffee.forEach(menu);
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<html>
+
+<body>
+  <h2>배열Ex5</h2>
+  <!-- 
+  점수를 배열로 만들고 점수의 최대 점수, 최저 점수, 평균을 출력
+  for문 이용 전체 순회. ->조건식 출력
+ -->
+  <script>
+    const score = [33, 30, 50, 90, 57];
+
+    //최고 점수
+    const maxArr = (num) => {
+      let maxScore = 0;
+      for (let i = 0; i < num.length; i++) {
+        if (maxScore < num[i]) {
+          maxScore = num[i];
+        }
+      }
+      return maxScore;
+    }
+
+    //최저 점수
+    const minArr = (score) => {
+      let minScore = 100;
+      for (let i = 0; i < score.length; i++) {
+        if (minScore > score[i]) {
+          minScore = score[i];
+        }
+      }
+      return minScore;
+    }
+
+    //점수 평균
+    const avgArr = (score) => {
+      let sum = 0;
+      for (let i = 0; i < score.length; i++) {
+        sum += score[i];
+      }
+      // return (sum / score.length);
+      sum = sum / score.length;
+      return sum;
+    }
+
+    console.log(`최고 점수: ${maxArr(score)}`);
+    console.log(`최저 점수: ${minArr(score)}`);
+    console.log(`점수 평균: ${avgArr(score)}`);
+
+  </script>
+</body>
+
+</html>

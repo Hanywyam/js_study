@@ -1,0 +1,48 @@
+<html>
+
+<body>
+  <h2>배열Array_map</h2>
+  <!-- 
+  https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+
+  Array.prototype.map()
+  : 배열 내의 모든 요소 각각에 대하여 주어진 함수를 호출한 결과를 모아 새로운 배열을 반환
+    기존 배열은 수정하지 않음. (원본값 그대로)
+
+  arr.map(callback(currentValue[, index[, array]])[, thisArg])
+  arr.map((현재 요소[,현재요소의 인덱스, 호출된 배열])=>{})
+
+  반환값
+  : 각 배열의 요소에 실행한 callback의 결과를 모은 새로운 배열.
+ -->
+  <script>
+    const arr = [10, 20, 50, 50];
+    // arr.map(item => console.log(item));
+    // arr.map(item, idx => console.log(item, idx));
+    arr.map((item, idx, arr) => {
+      console.log(item);
+      console.log(idx);
+      console.log(arr);
+      console.log(item * item);
+      console.log(`----`);
+    });
+
+
+    const data = [
+      { id: 1, coffee: '아메리카노' },
+      { id: 2, coffee: '카페라떼' },
+      { id: 3, coffee: '바닐라라떼' },
+      { id: 4, coffee: '카페모카' },
+      { id: 4, coffee: '아이스 카페모카' },
+      { id: 5, coffee: '아메리카노' }
+    ];
+
+    data.map((elem, idx) => {
+      // console.log(`배열요소:${elem}, 인덱스 번호:${idx}`); elem 객체 자체 반환
+      console.log(`번호:${elem.id}, 종류:${elem.coffee}`);
+    });
+
+  </script>
+</body>
+
+</html>

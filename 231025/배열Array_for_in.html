@@ -1,0 +1,44 @@
+<html>
+
+<body>
+  <h2>배열Array_for_in</h2>
+
+  <script>
+    /* 
+    변수 in 객체
+
+    for(변수 in 객체){}
+    객체 속성(프로퍼티)을 순회할 때 주로 사용.
+    */
+
+    const arr1 = [10, 20, 30, 40];
+    for (let idx in arr1) { // 배열이 가지고 있는 수만큼 반복
+      console.log(`인덱스 번호: ${idx}, 요소의 값: ${arr1[idx]}`);
+    }
+
+
+    console.log('-----');
+    const arr2 = {
+      //키: 값,
+      coffee: '바닐라라떼',
+      price: 4000,
+      size: 'tall',
+      id: 1
+    }
+
+    for (let i in arr2) {
+      console.log(i); //key 반환
+      console.log(`키: ${i}`);
+      console.log(`값: ${arr2[i]}`); //배열 반복문
+    }
+
+    console.log(Object.keys(arr2));
+    // 배열의 형태로 키 반환 == ['coffee', 'price', 'size', 'id']
+    console.log(Object.values(arr2));
+    // 배열의 형태로 값 반환 == ['바닐라라떼', 4000, 'tall', 1]
+    console.log(Object.entries(arr2));
+    // 배열의 형태로 객체 반환 == [Array(2), Array(2), Array(2), Array(2)]
+  </script>
+</body>
+
+</html>

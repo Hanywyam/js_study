@@ -1,0 +1,50 @@
+<html>
+
+<body>
+  <h2>spread전개구문2</h2>
+  <script>
+    const data = [
+      { id: 1, coffee: '아메리카노', size: 'venti' },
+      { id: 2, coffee: '카페라떼', size: 'tall' },
+      { id: 3, coffee: '바닐라라떼', size: 'small' },
+      { id: 4, coffee: '카페모카', size: 'tall' },
+      { id: 5, coffee: '아메리카노', size: 'none' }
+    ];
+
+    // .concat 값 추가 => {id: 6, coffee: '오늘의커피'}
+    const data1 = data.concat({ id: 6, coffee: '오늘의커피' });
+    // ... 값 추가 => {id: 7, coffee: '디카페인 라떼'}
+    const data2 = [...data, { id: 7, coffee: '디카페인 라떼' }];
+
+    console.log(data1);
+    console.log(data2);
+
+    const data03 = [...data, { id: 1, coffee: '아이스 아메리카노' }];
+    console.log(data03);
+
+    // id:1, coffee:'아이스 아메리카노' => 변경
+    const data3 = data.map(item => {
+      if (item.id === 1) {
+        return {
+          ...item,
+          coffee: '아이스 아메리카노'
+        }
+      } else {
+        return item
+      }
+    });
+    console.log('data3: ', data3);
+
+    console.log('----');
+    const data4 = data.map(item => item.id === 2 ? { ...item, coffee: '아이스 라떼' } : item);
+    console.log(data4);
+
+
+    console.log('----'); // 점수 중 제일 작은 값 찾기
+    const score = [99, 50, 62, 90, 12, 60, 22, 45];
+    const min = Math.min(...score);
+    console.log(min);
+  </script>
+</body>
+
+</html>
