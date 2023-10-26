@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>DOM객체4_생성삭제</title>
+  <style></style>
+</head>
+
+<body>
+  <h3>DOM객체4_생성삭제</h3>
+
+  <script>
+    /* 
+        const body = document.querySelector('body');
+        console.log(body);
+    */
+
+    // .createElement(''); 요소를 인자로 전달해 '생성'만 함
+    const ul = document.createElement('ul');
+    console.log(ul);
+
+    // .append(); 노드 자식의 끝에 '요소' 추가
+    document.body.append(ul); // body의 자식들 중에 마지막 추가
+    //#gnb 속성 값 설정
+    // document.querySelector('ul').setAttribute('id', 'gnb');
+    ul.setAttribute('id', 'gnb');
+
+    //li 생성
+    const li = document.createElement('li');
+
+    // .appendChild(node); 인자로 전달한 노드를 마지막 자식 '요소'로 추가
+    ul.appendChild(li);
+
+    li.innerHTML = '<a href="#">a 추가</a>';
+
+    /*
+      https://ko.javascript.info/modifying-document#ref-969
+
+      .insertAdjacentHTML('위치','노드');
+        -- beforebegin --
+          <ul>
+        -- afterbegin --
+          'text'
+        -- beforeend --
+          </ul>
+        -- afterend --
+    */
+
+    ul.insertAdjacentHTML('beforebegin', '<li>beforebegin 노드 추가</li>');
+    ul.insertAdjacentHTML('afterbegin', '<li>afterbegin 노드 추가</li>');
+    ul.insertAdjacentHTML('beforeend', '<li>beforeend 노드 추가</li>');
+    ul.insertAdjacentHTML('afterend', '<li>afterend 노드 추가</li>');
+
+    const h1 = document.createElement('h1');
+    // .prepend(노드); 기준 노드 자식의 맨 앞에 추가(body 기준 제일 앞)
+    document.body.prepend(h1);
+    h1.textContent = '노드 추가, 수정, 삭제';
+
+    //.before('문자열'); 기준 노드 형제 앞쪽에 추가
+    ul.before('<p>.before</p>'); //코드 값이 아닌 문자열로 추가(글자 그대로)
+
+    //.after('문자열'); 기준 노드 형제 뒤쪽에 추가
+    const p = document.createElement('p');
+    p.textContent = 'p요소를 ul 뒤에 추가';
+    ul.after(p);
+
+    // .remove(); 노드 삭제. 매개 변수 x.
+    const lis = document.querySelectorAll('li');
+    // lis.forEach(li => li.remove());
+
+  </script>
+</body>
+
+</html>

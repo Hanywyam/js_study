@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>DOM객체3_탐색</title>
+  <style></style>
+</head>
+
+<body>
+  <ul id="wrapper" class="container">
+    <li id="txt1" class="txt">.setAttribute('속성','값'); 속성값 설정</li>
+    <li id="txt2" class="txt">.getAttribute('속성'); 속성값 얻음</li>
+    <li id="txt3" class="txt">.hasAttribute('속성'); 속성 존재 확인</li>
+    <li id="txt4" class="txt">.removeAttribute('속성'); 속성값 제거</li>
+  </ul>
+
+  <script>
+    const container = document.querySelector('.container');
+    const txts = document.querySelectorAll('.txt');
+
+    // 속성 값 얻음
+    console.log(
+      //id 속성을 가져옴 == #wrapper
+      container.getAttribute('id')
+    )
+
+    // 속성 값 설정
+    container.setAttribute('data-style', 'teal');
+    document.querySelector('#txt1').setAttribute('data-style', 'orange');
+    // *data- : 사용자 정의 속성. 뒤에 붙이는대로 내가 제어할 수 있음.
+
+    // 속성 값 존재 확인 true | false
+    console.log(
+      container.hasAttribute('class') // true
+    );
+    console.log(
+      container.hasAttribute('style') // false
+    );
+    // *has~ 붙은건 보통 true | false 로 확인해 줌.
+
+    // 속성 값 제거. 해당하는 속성 값이 사라짐.
+    txts[2].removeAttribute('id');
+    //li의 id 속성 제거
+    txts.forEach(item => item.removeAttribute('id'));
+  </script>
+</body>
+
+</html>

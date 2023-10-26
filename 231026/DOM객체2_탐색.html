@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>DOM객체2_탐색</title>
+  <style></style>
+</head>
+
+<body>
+  <div class="container">
+    <ul>
+      <li>.parentNode; 부모 노드 탐색</li>
+      <li>.firstElementChild; 첫번째 자식 요소 노드 탐색</li>
+      <li>.lastElementChild; 마지막 자식 요소 노드 탐색</li>
+      <li>.previousElementSibling; 이전 형제 요소 노드 탐색</li>
+      <li>.nextElementSibling; 이후 형제 요소 노드 탐색</li>
+    </ul>
+  </div>
+
+  <script>
+    const container = document.querySelector('.container');
+    const ul = document.querySelector('ul'); // 하나인 경우
+    const lis = document.querySelectorAll('li');
+
+    // 부모 노드 탐색 == parentNode
+    ul.parentNode.style.border = '3px solid #000';
+
+    // 자식 요소 노드 탐색
+    // ul 요소의 첫번째 자식 요소 탐색 == firstElementChild
+    ul.firstElementChild.style.color = 'orange';
+    // ul 요소의 마지막 자식 요소 탐색 == lastElementChild
+    ul.lastElementChild.style.color = 'orange';
+
+    // 자식 노드 탐색 == firstChild
+    // -> 대부분의 브라우저에서 공백, 줄바꿈도 '텍스트 노드'로 취급
+    // ul.firstChild.style.backgroundColor = '#569';
+    console.log(ul.firstChild); // #text
+    console.log(ul.firstElementChild); // <li> 그자체
+
+    // 형제 요소 노드 탐색
+    // 기준 객체 이전의 형제
+    lis[2].previousElementSibling.style.color = 'blue';
+    // 기준 객체 이후의 형제
+    lis[2].nextElementSibling.style.color = 'blue';
+    console.log(lis[2].nodeName); //엘리먼트(요소) 이름 :LI
+    console.log(lis[2].nodeType);//엘리먼트 :1
+    // 1: 엘리먼트, 2:속성, 3:텍스트 => 디버그작업 시 사용
+    console.log(lis[2].firstChild.nodeType); // 텍스트 :3
+    console.log(lis[2].firstChild.nodeValue); // 노드의 값 반환 :.lastElementChild; 마지막 자식 요소 노드 탐색
+    lis[1].firstChild.nodeValue = 'none';
+    console.log(lis[1].firstChild.nodeValue);
+    console.log(lis[2].firstChild.nodeType);
+  </script>
+</body>
+
+</html>

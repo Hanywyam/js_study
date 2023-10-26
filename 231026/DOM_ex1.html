@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>DOM_ex1</title>
+  <style></style>
+</head>
+
+<body>
+  <div class="container">
+    <img src="" alt="img1" class="pic">
+    <img src="" alt="img2" class="pic">
+    <img src="" alt="img3" class="pic">
+    <img src="" alt="img4" class="pic">
+  </div>
+
+  <script>
+    // 배열로 만들어서 img의 src값으로 대입
+    const imgURL = [
+      'https://placeholder.com/200/f69/000?text=img1',
+      'https://placeholder.com/200/6f9/000?text=img2',
+      'https://placeholder.com/200/69f/000?text=img3',
+      'https://placeholder.com/200/f96/000?text=img4'
+    ]
+
+    const img = document.querySelectorAll('img');
+    console.log(img);
+    img.forEach((img, idx) => {
+      // img.setAttribute('src', imgURL[idx]);
+      img.src = imgURL[idx]
+    });
+  </script>
+</body>
+
+</html>

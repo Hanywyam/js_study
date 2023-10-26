@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>DOM객체1_탐색</title>
+</head>
+
+<body>
+  <h1 id="title"></h1>
+  <h2><em>d</em>ocument <em>o</em>bject <em>m</em>odel : <em>dom</em></h2>
+  <p>문서의 구조화된 표현으로 스크립트 및 프로그래밍 언어와 페이지를 연결</p>
+  <p>문서의 구조, 스타일, 콘텐츠를 변경</p>
+
+  <ul>
+    <li><a href="https://developer.mozilla.org/ko/docs/Web/API/Document_Object_Model/Introduction" target="_blank">DOM
+        소개</a>
+    </li>
+    <li><a href="https://developer.mozilla.org/ko/docs/Web/API/Document_Object_Model" target="_blank">문서 객체 모델(DOM)</a>
+    </li>
+    <li><a href="https://ko.javascript.info/browser-environment#ref-921" target="_blank">javascript.info</a></li>
+  </ul>
+
+  <ul class="gnb">
+    <li class="list"></li>
+    <li class="list"></li>
+    <li class="list"></li>
+    <li class="list"></li>
+  </ul>
+
+
+  <script>
+    /* 
+    css 방식 vs js 스타일 방식(.style.css 속성) : 카멜 표기법
+    border : border
+    font-size : fontSize
+    */
+
+    // id 속성 노드 탐색 document.getElementById('id'); => 유일한 속성
+    document.getElementById('title').textContent = 'DOM 객체';
+
+    /* 
+    class 속성 노드 탐색 document.getElementsByClassName('class');
+    tag 노드 탐색 getElementsByTagName('tag');
+    '유사 배열 형태'로 반환
+      => 여러 개의 값을 가질 수 있는 속성 => 그래서 배열의 형태로 만들어짐.
+    */
+    document.getElementsByClassName('gnb')[0].style.border = '3px solid #000';
+
+    const p = document.getElementsByTagName('p');
+    console.log(p);
+    /* 
+    HTMLCollection(2) [p, p]
+      0: p
+      1: p
+      length: 2
+    => 배열처럼 정의
+    */
+    p[0].style.fontSize = '1.1rem';
+    p[1].style.textDecoration = 'underline';
+
+    /*
+    표준 탐색 메서드
+    : 
+    document.querySelector('#id'); => 하나의 노드만 탐색
+    document.querySelectorAll('.class'); => 여러 노드를 탐색하지만 하나의 노드만 유사 배열 형태로 반환.
+    
+    NodeList로 반환
+    : 배열은 아니지만 배열처럼 처리할 수 있는 객체로. 숫자로 된 key와 length 프로퍼티(속성)가 있음.
+      NodeList는 .forEach()의 사용 가능
+      .map(), .filter() 등의 배열 메서드는 사용 불가능 <- 실질적 배열은 아니기 때문
+        => 대신, spread 연산자를 이용하여 배열로 변환 후 사용은 가능하다.
+    */
+
+    const a = document.querySelectorAll('a');
+    console.log(a);
+    /* 
+    a[0].style.textDecoration = 'none';
+    a[1].style.textDecoration = 'none';
+    a[2].style.textDecoration = 'none';
+
+    => 유사 배열로 style을 넣고 싶을 때 각각 적용됨.
+    => 모든 값에 style을 넣고 싶을 때 .forEach를 이용할 수 있다. (아래)
+    */
+    // [a,a,a].forEach();
+    a.forEach(a => {
+      a.style.textDecoration = 'none';
+      a.style.color = 'inherit';
+    });
+
+    //li 탐색. c, lh, list 1,2,3 내용추가
+    const li = document.querySelectorAll('.gnb li');
+    li.forEach((li, idx) => {
+      li.textContent = `리스트${idx + 1}`;
+      li.style.color = 'navy';
+      li.style.lineHeight = '1.7';
+    });
+
+    // const li2 = document.querySelectorAll('.list');
+    // li2[0].textContent = '고기는';
+    // li2[1].textContent = '언제먹어도';
+    // li2[2].textContent = '항상';
+    // li2[3].textContent = '맛있다';
+
+    const em = document.querySelectorAll('em');
+    em.forEach((em) => {
+      em.style.color = 'tomato';
+      em.style.margin = '.1rem';
+      em.style.textTransform = 'uppercase';
+    });
+  </script>
+</body>
+
+</html>

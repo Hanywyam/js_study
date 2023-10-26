@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>DOM객체5_표준속성</title>
+  <style></style>
+</head>
+
+<body>
+  <h1>html 표준 정의 속성 접근</h1>
+  <ul>
+    <li><a href="#" data-color="orange" data-bg="#ddd">텍스트1</a></li>
+    <li><a href="#" data-color="teal" data-size="1.2rem">텍스트2</a></li>
+    <li><a href="#" data-color="salmon" data-bg="rgba(110,10,130,0.5)">텍스트3</a></li>
+    <li><a href="#" data-color="skyblue" data-bg="#31f">텍스트4</a></li>
+    <li><a href="#" data-color="tomato" data-size="1.3rem">텍스트5</a></li>
+  </ul>
+
+  <script>
+    /*
+        html 표준 정의 속성 접근 방법
+          ul.id = 'gnb';
+          a.href = '';
+          body.style = '';
+          input.value = '';
+          input.type = '';
+          img.src = '';
+        
+        html 표준 모델에서
+          data-사용자정의이름=""
+            data-color="", data-name="", data-size=""
+        
+        js에서 접근
+        .dataset.사용자정의이름; 사용자 정의 속성에 접근 가능
+          .dataset.color, .dataset.name, .dataset.size
+    */
+
+    const ul = document.querySelector('ul');
+    const as = document.querySelectorAll('li > a');
+
+    ul.id = 'global-menu';
+    console.log(ul.id);
+
+    // a 밑줄 x, color
+    as.forEach((a) => {
+      a.style.textDecoration = 'none';
+      console.log(a.dataset.color); //data-속성의 이름이 color인 값
+      a.style.color = a.dataset.color;
+
+      // data-bg 적용
+      // a.style.backgroundColor = a.dataset.bg;
+      const bg = a.dataset.bg;
+      a.style.backgroundColor = bg;
+
+      // data-size 적용
+      // a.style.fontSize = a.dataset.size;
+      const size = a.dataset.size;
+      a.style.fontSize = size;
+    });
+
+  </script>
+</body>
+
+</html>
