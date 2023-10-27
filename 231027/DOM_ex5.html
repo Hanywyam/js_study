@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>DOM_ex5</title>
+  <style></style>
+</head>
+
+<body>
+  <h2>DOM_ex5</h2>
+  <ul class="container">
+    <li>리스트1</li>
+    <li>리스트2</li>
+  </ul>
+
+  <script>
+    //2초 후 container 뒤로 h2 노드 이동
+
+    const h2 = document.querySelector('h2');
+    const ul = document.querySelector('.container');
+
+    // setTimeout(() => {
+    //   ul.insertAdjacentElement('afterend', h2)
+    // }, 2000);
+
+    const move = () => {
+      ul.insertAdjacentElement('afterend', h2)
+    }
+    setTimeout(move, 2000);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>DOM_ex3</title>
+  <style></style>
+</head>
+
+<body>
+  <h2>오늘의 날씨는,</h2>
+
+  <script>
+    //3초 후에 'ㅇㅇㅇ예정입니다'로 변경
+    const h2 = document.querySelector('h2');
+    setTimeout(() => h2.textContent = '비가 올 예정입니다.', 3000);
+  </script>
+</body>
+
+</html>

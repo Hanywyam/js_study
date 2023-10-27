@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>class제어</title>
+  <style>
+    .flex_btn {
+      display: flex;
+    }
+
+    .flex_btn a {
+      text-decoration: none;
+      color: inherit;
+      border: 3px solid #000;
+      padding: 10px 20px;
+      font-weight: bold;
+      margin: 0 10px;
+    }
+
+    .flex_btn a:hover {
+      background-color: #000;
+      color: #fff;
+    }
+
+    .flex_btn .btn_style {
+      background-color: orange;
+    }
+
+    .bg {
+      background-color: #BEADFA;
+    }
+
+    .bold {
+      font-weight: bold;
+      font-size: 1.4rem;
+    }
+
+    .tomato {
+      background-color: tomato;
+    }
+
+    .normal {
+      font-weight: normal;
+      font-size: 24px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>js에서의 클래스 제어</h1>
+  <div class="flex_btn">
+    <a href="#">버튼</a>
+  </div>
+  <p></p>
+  <ul>
+    <li>텍스트1</li>
+    <li>텍스트2</li>
+    <li>텍스트3</li>
+  </ul>
+
+  <script>
+    const btn = document.querySelector('.flex_btn a');
+    const p = document.querySelector('p');
+    const h1 = document.querySelector('h1');
+    const ul = document.querySelector('ul');
+    const li = document.querySelectorAll('li');
+
+    // .classList.add(); : 클래스 속성 추가
+    document.body.classList.add('bg');
+    btn.classList.add('btn_style');
+
+    // .classList.remove(); : 클래스 속성 제거
+    console.log(btn.parentNode);
+    btn.parentNode.classList.remove('flex_btn'); //보통 부모요소의 클래스로 style값을 주게되므로 부모클래스를 제거하면 하위 style까지 모두 제거하면서 제어할 수 있음.
+
+    // .classList.toggle(); : .add() .remove()의 반복
+    // 버튼을 클릭하면 부모 요소의 스타일이 토글
+    btn.addEventListener('click', () => {
+      btn.parentNode.classList.toggle('flex_btn');
+
+      // .contains(); : 해당 클래스 속성 여부 확인. true, false
+      // .classList.contains('bold'); p에 .bold 클래스가 있으면 지우고, 없으면 .bold 추가
+      const isBold = p.classList.contains('bold');
+      console.log(isBold);
+      if (isBold) {
+        p.textContent = `${isBold} 반환. 클래스 bold 없음`;
+        p.classList.remove('bold')
+      } else {
+        p.textContent = `${isBold} 반환. 클래스 bold 있음`;
+        p.classList.add('bold');
+      };
+    });
+
+    // .className; 클래스 값을 가져오거나 변경
+    h1.className = 'normal';
+    h1.className = 'tomato'; // 교체
+    h1.classList.add('normal'); //추가
+
+    //li .tomato 추가
+    li.forEach(li => li.className = 'tomato');
+
+    // classList.replace('탐색클래스','바꿀클래스');
+    btn.addEventListener('click', () => {
+      li.forEach(li => li.classList.replace('tomato', 'bold'));
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>DOM_ex4</title>
+  <style></style>
+</head>
+
+<body>
+  <div class="container">
+    <img src="" alt="img1" class="pic">
+    <img src="" alt="img2" class="pic">
+    <img src="" alt="img3" class="pic">
+    <img src="" alt="img4" class="pic">
+  </div>
+
+  <script>
+    //무작위로 RGB 색상을 반환
+
+    const pics = document.querySelectorAll('.pic');
+    pics.forEach((pic, idx) => {
+      const red = Math.trunc(Math.random() * 256);
+      const green = Math.trunc(Math.random() * 256);
+      const blue = Math.trunc(Math.random() * 256);
+      const bgColor = `rgb(${red},${green},${blue})`;
+
+      const url = `https://placeholder.com/200/${bgColor}/fff?text=img${idx + 1}`;
+      pic.src = url;
+    });
+
+    /* 내가 쓴 js
+    const bgColor = () => {
+      const red = Math.floor(Math.random() * 256);
+      const green = Math.floor(Math.random() * 256);
+      const blue = Math.floor(Math.random() * 256);
+      const bgColor = `rgb(${red},${green},${blue})`;
+    };
+
+    const num = [1, 2, 3, 4];
+
+    const url = `https://placeholder.com/200/${bgColor}/000?text=img${num}`;
+
+    const img = document.querySelectorAll('.pic');
+    img.forEach((img) => {
+      img.src = url;
+    });
+     */
+  </script>
+</body>
+
+</html>

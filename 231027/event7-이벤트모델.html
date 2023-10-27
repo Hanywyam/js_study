@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>event7-이벤트모델</title>
+
+</head>
+
+<body>
+  <h1>event7-이벤트모델</h1>
+  <form>
+    <p>
+      <label>
+        name :
+      </label>
+      <input type="text" id="txt" name="txt" placeholder="이곳에 작성하세요">
+    </p>
+    <p><button type="submit">전송</button></p>
+  </form>
+
+  <ol>
+    <li>focus: 입력 폼에 커서가 생겼을 때</li>
+    <li>blur: 입력 폼에 커서가 사라졌을 때</li>
+    <li>submit: form의 버튼이 클릭되었을 때. form 요소가 서버로 전송되었을 때</li>
+    <li>change: 입력 폼의 값이 변경될 때</li>
+    <li>keyup: 키가 떨어졌을 때</li>
+    <li>keypress: 키가 입력되었을 때. 웹브라우저에 따라 아시아 문자를 제대로 처리하지 못해 잘 사용 x </li>
+    <li>keydown: 키를 눌렀을 때</li>
+  </ol>
+  <script src="./event7.js"></script>
+</body>
+
+</html>

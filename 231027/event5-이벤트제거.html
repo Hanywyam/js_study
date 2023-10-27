@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>event5-이벤트제거</title>
+  <style>
+    h1 {
+      /* 드래그나 클릭 등의 텍스트 선택 방지. 
+      all: 클릭만으로 텍스트 선택 가능.
+      auto: 기본값
+
+      투명도까지 주면 눈속임 가능.
+       */
+      user-select: none;
+      /* opacity: 0; */
+    }
+
+    .flex_btn {
+      display: flex;
+    }
+
+    .flex_btn a {
+      text-decoration: none;
+      color: inherit;
+      border: 3px solid #000;
+      padding: 10px 20px;
+      font-weight: bold;
+      margin: 0 10px;
+    }
+
+    .flex_btn a:hover {
+      background-color: #000;
+      color: #fff;
+    }
+  </style>
+  <script>
+    // DOM을 불러오면 함수 호출
+    document.addEventListener('DOMContentLoaded', () => {
+      const h1 = document.querySelector('h1');
+      const count = document.querySelector('#count');
+      const reset = document.querySelector('#reset');
+      const removeEvent = document.querySelector('#removeEvent');
+      const addEvent = document.querySelector('#addEvent');
+
+      //h1 클릭했을 때 숫자 증가
+      let sum = 0;
+      h1.addEventListener('click', () => {
+        console.log(h1.textContent);
+        // sum++;
+        h1.textContent = `클릭 : ${++sum}`;
+      })
+
+      //count 클릭했을 때 숫자 증가
+      const listener = () => h1.textContent = `클릭 : ${++sum}`;
+      count.addEventListener('click', listener);
+
+      //reset 클릭했을 때 0으로 초기화
+      const resetNum = () => h1.textContent = `클릭 : ${sum = 0}`;
+      reset.addEventListener('click', resetNum);
+
+      //removeEvent 클릭했을 때 이벤트 제거
+      // count.removeEventListener('click', listener); => 카운트 버튼을 클릭하면 리스너 함수 삭제(addEventListener 자체를 삭제)
+
+      removeEvent.addEventListener('click', () => { // 1) 리무브 버튼을 클릭하면
+        // 2) h1 내용 변경
+        h1.textContent = '이벤트 리스너 제거';
+        // 3) 카운트 버튼을 클릭하면 이벤트 리스너가 제거. h1의 숫자 작동 x
+        count.removeEventListener('click', listener);
+      })
+
+      //addEvent 클릭했을 때 이벤트 재시작
+      addEvent.addEventListener('click', () => {
+        h1.textContent = '이벤트 리스너 재연결';
+        count.addEventListener('click', listener);
+      })
+    });
+
+  </script>
+</head>
+
+<body>
+  <h2>event5-이벤트제거: removeEventListner</h2>
+  <h1>클릭 : 0</h1>
+  <div class="flex_btn">
+    <a href="#" class="btn_style" id="count">count</a>
+    <a href="#" class="btn_style" id="reset">reset</a>
+    <a href="#" class="btn_style" id="removeEvent">removeEventListner</a>
+    <a href="#" class="btn_style" id="addEvent">addEventListner</a>
+  </div>
+</body>
+
+</html>
