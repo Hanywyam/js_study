@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>eventEx1</title>
+    <style>
+        .flex-btn {
+            display: flex;
+        }
+
+        .flex-btn .btn-style {
+            text-decoration: none;
+            color: inherit;
+            padding: 5px 10px;
+            border: 3px solid #000;
+            font-weight: bold;
+            margin: 10px
+        }
+
+        .flex-btn .btn-style:hover {
+            background-color: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-btn">
+        <a href="#" class="btn-style" id="btn1" data-bg="orange">orange</a>
+        <a href="#" class="btn-style" id="btn2" data-bg="tomato">tomato</a>
+        <a href="#" class="btn-style" id="btn3" data-bg="lightskyblue">lightskyblue</a>
+        <a href="#" class="btn-style" id="btn4" data-bg="purple">purple</a>
+    </div>
+
+    <script>
+        /* 
+        const btn1 = document.querySelector('#btn1')
+        const btn2 = document.querySelector('#btn2')
+
+        btn1.addEventListener('click', ()=>)
+         */
+
+        const btns = document.querySelectorAll('.btn-style');
+        // ['#btn1', '#btn2','#btn3','#btn4'].forEach(()=>{})
+        btns.forEach(btn => {
+            const bg = btn.dataset.bg;
+
+            btn.addEventListener('click', () => document.body.style.backgroundColor = bg);
+        });
+    </script>
+</body>
+
+</html>

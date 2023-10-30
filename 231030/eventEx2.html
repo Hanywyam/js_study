@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>eventEx2</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #000;
+            padding: 12px;
+            line-height: 1.8;
+            display: inline-block;
+        }
+
+        .modal {
+            border: 1px solid #000;
+            background-color: #ddd;
+            width: 200px;
+            height: 300px;
+            padding: 30px;
+            position: fixed;
+            top: 50px;
+            right: 50px;
+        }
+
+        .modal.none {
+            display: none;
+        }
+
+        #close-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>모달창</h1>
+    <a href="#" id="open-btn">모달창 열기</a>
+
+    <div class="modal">
+        <h2>공지사항</h2>
+        <p>레이어 형태의 팝업창</p>
+        <a href="#" id="close-btn">모달창 닫기</a>
+    </div>
+
+    <script>
+        const modal = document.querySelector('.modal');
+        const openBtn = document.querySelector('#open-btn');
+        const closeBtn = document.querySelector('#close-btn');
+
+        // closeBtn.addEventListener('click', () => modal.style.display = 'none');
+
+        closeBtn.addEventListener('click', () => modal.classList.add('none'));
+        openBtn.addEventListener('click', () => modal.classList.remove('none'));
+
+    </script>
+</body>
+
+</html>
