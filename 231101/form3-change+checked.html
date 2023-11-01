@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>form3-change+checked</title>
+  <style></style>
+</head>
+<!-- checkbox = radio button 모두 해당 -->
+
+<body>
+  <input type="checkbox" id="check1" name="checkBox" value="체크박스1">체크박스1
+  <input type="checkbox" id="check2" name="checkBox" value="체크박스2">체크박스2
+  <input type="checkbox" id="check3" name="checkBox" value="체크박스3">체크박스3
+
+  <h3></h3>
+
+  <script>
+    const h3 = document.querySelector('h3');
+    const checks = document.querySelectorAll('[type=checkbox]');
+
+    /*
+      'change' : 이벤트명. 폼 요소 상태 변경이 끝날 때를 감지. input, button, selet
+      .checked; 속성. 체크 상태를 boolean으로 반환.
+    */
+
+    /* 체크 박스에 클릭이 되면 h3에 내용 출력.
+     checks.forEach(box => {
+       box.addEventListener("click", (evt) => {
+         h3.textContent = `체크${evt.target.checked}했습니다`;
+       });
+     });
+    */
+
+    checks.forEach((box, idx) => {
+      box.addEventListener('change', evt => {
+        const target = evt.target.checked;
+        h3.textContent = `${idx + 1}번 체크${target}했습니다`;
+      });
+    });
+
+
+  </script>
+
+</body>
+
+</html>

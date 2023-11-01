@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>form1</title>
+    <style>
+        form {
+            margin: 30px 0;
+            padding: 5px;
+        }
+
+        input {
+            display: block;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        placeholder : 사용자의 행동을 유도하는 힌트 역할
+        value : 값. 빈 공간에 값을 미리 넣어놓을 수 있음.
+     -->
+    <form id="container" name="wrapper">
+        <input type="text" name="userId" id="user-id" placeholder="이곳에 입력해 주세요">
+        <input type="search" name="userSearch" id="user-search" value="검색">
+        <button type="submit">입력</button>
+        <button type="reset">취소</button>
+        <p></p>
+    </form>
+    <form>
+        <input type="text" name="text" id="user-text">
+    </form>
+
+    <script>
+        // 쿼리 셀렉터로 form을 불러서 사용 할 수 있지만, 
+        const formElem = document.querySelector('form');
+        formElem.style.border = '3px solid #000';
+
+        // 자바스크립트 도큐먼트 객체 안에 form == forms 로 기본 설정이 있음.
+        // forms는 유사 배열의 형태로 반환. 배열의 읽기로 리턴 받는다.
+        document.forms[0].style.width = '200px';
+        document.forms[1].style.border = '3px solid #666';
+
+        // form에 input name의 값으로 제어가 가능함.
+        // forms 객체 하위 속성 name을 이용
+        document.forms.wrapper.style.padding = '20px';
+
+        document.forms[1].text.placeholder = 'your name';
+        wrapper.userId.placeholder = '이름을 추가하세요';
+        // 값(value) 대입
+        wrapper.userId.value = '값';
+        console.log(wrapper.userId.value);
+
+        const form = document.forms.wrapper;
+        console.log(form);
+        const p = document.querySelector('p');
+        const button = document.querySelector('button[type=submit]');
+
+        // 버튼을 클릭하면 p영역에 내용출력 : textContent
+        button.addEventListener("click", (evt) => {
+            evt.preventDefault();
+            p.textContent = wrapper.userId.value; //텍스트 필드에 입력된 값을 가져와 p에 대입
+        })
+
+    </script>
+</body>
+
+</html>

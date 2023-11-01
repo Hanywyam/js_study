@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>eventEx9</title>
+    <style>
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .simpleSlide {
+            width: 500px;
+            height: 400px;
+            margin: 50px auto;
+            border: 3px solid #000;
+            position: relative;
+        }
+
+        .simpleSlide .slideWrapper .slideImte {
+            width: 100%;
+            height: 100%;
+            color: #fff;
+            font-weight: bold;
+            font-size: 3rem;
+            text-align: center;
+            line-height: 380px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: .5s;
+            opacity: 0;
+        }
+
+        .simpleSlide .slideWrapper .slideImte.active {
+            opacity: 1;
+        }
+
+        .simpleSlide .img1 {
+            background-color: cornflowerblue;
+        }
+
+        .simpleSlide .img2 {
+            background-color: orange;
+        }
+
+        .simpleSlide .img3 {
+            background-color: forestgreen;
+        }
+
+        .simpleSlide .img4 {
+            background-color: crimson;
+        }
+
+        .simpleSlide .btn {
+            width: 40px;
+            height: 50px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 2rem;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.8);
+            cursor: pointer;
+            position: absolute;
+        }
+
+        .simpleSlide #pre-btn {
+            top: 45%;
+            left: 0;
+        }
+
+        .simpleSlide #nxt-btn {
+            top: 45%;
+            right: 0;
+        }
+
+        .simpleSlide .btn:hover {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="simpleSlide">
+        <ul class="slideWrapper">
+            <li class="slideImte img1 active">img1</li>
+            <li class="slideImte img2">img2</li>
+            <li class="slideImte img3">img3</li>
+            <li class="slideImte img4">img4</li>
+        </ul>
+        <ul class="btn-wrap">
+            <li class="btn" id="pre-btn">&lt;</li>
+            <li class="btn" id="nxt-btn">&gt;</li>
+        </ul>
+    </div>
+
+    <script>
+        const slideItems = document.querySelectorAll('.slideImte');
+        const prevBtn = document.querySelector('#pre-btn');
+        const nextBtn = document.querySelector('#nxt-btn');
+
+        console.log(slideItems);
+        // NodeList(4) ==NodeList[li,li,li,li]
+
+        let idx = 0;
+        nextBtn.addEventListener("click", () => {
+            slideItems[idx].classList.remove("active");
+            idx++;
+            if (idx >= slideItems.length) idx = 0;
+            // slideItems.length >= idx ? (idx = 0) : false;
+            slideItems[idx].classList.add('active');
+        });
+
+        prevBtn.addEventListener("click", () => {
+            slideItems[idx].classList.remove("active");
+            idx--;
+            if (idx < 0) idx = slideItems.length - 1;
+            // (idx < 0) ? idx = slideItems.length - 1 : false;
+            slideItems[idx].classList.add('active');
+        });
+
+        // setInterval (콜백함수, 시간);
+        setInterval(() => { nextBtn.click(); }, 3000);
+    </script>
+</body>
+
+</html>

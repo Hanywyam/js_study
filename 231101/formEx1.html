@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>formEx1</title>
+  <style></style>
+</head>
+
+<body>
+  <h1>제곱미터 = 평 수 변환기</h1>
+  <p>*0.3025</p>
+  <form id="container">
+    <input type="text" name="num" id="txt">
+    <button type="submit" name="submit">계산</button>
+    <h2>변환값</h2>
+  </form>
+
+  <script>
+    const form = document.querySelector('#container');
+    const h2 = document.querySelector('h2');
+    const txt = document.querySelector('#txt');
+
+    // document.querySelector('button').addEventListener('click', ()=>{});
+    form.addEventListener('submit', evt => {
+      evt.preventDefault();
+
+      let num = txt.value;
+      console.log(typeof num); //input으로 입력 받는 값은 문자열
+      num = Number(num);
+      console.log(typeof num, num); //number == NaN
+
+      // isNaN() NaN인지 아닌지 boolean 반환. NaN -> true
+
+      if (isNaN(num)) {
+        h2.textContent = `숫자만 입력하세요.`;
+        return; //리턴키워드 단독사용시 이후 구문은 실행되지 않고 빠져나옴.
+      }
+
+      // const result = Math.round(txt.value * 0.3025);// 반올림
+      const result = txt.value * 0.3025;// 반올림
+      h2.textContent = `약 ${result}평`;
+    })
+
+    /*
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      txt.textContent = container.userValue.value;
+    });
+     */
+  </script>
+</body>
+
+</html>

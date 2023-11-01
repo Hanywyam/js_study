@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>form2-submit</title>
+    <style>
+        form {
+            padding: 20px;
+            width: 250px;
+            border: 3px solid #000;
+            text-align: right;
+        }
+
+        h2 {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>id: abc / pw: 1234</h3>
+    <form id="login" name="container">
+        <p>아이디 : <input type="text" name="userId" id="user-id"></p>
+        <p>PW : <input type="password" name="userPw" id="userPw"></p>
+        <button type="submit">로그인</button>
+        <button type="reset">취소</button>
+    </form>
+    <!-- 로그인 되었습니다. / 아이디 혹은 비밀번호가 틀렸습니다. -->
+    <h2 class="param"></h2>
+
+    <script>
+        // const form = document.querySelector('#login');
+        const form = document.forms.container;
+        console.log(form);
+        const param = document.querySelector('.param');
+
+        /* 
+        폼 전용 전송 매서드.
+            정보를 검증 후 서버로 전송하기 때문에 클릭 버튼에 적용하는게 아님 form 요소에 적용.
+            .submit();
+            .onsubmit();
+            .addEventListener('submit',)
+        */
+        form.addEventListener('submit', (evt) => {
+            evt.preventDefault();
+
+            const userId = form.userId;
+            const userPw = form.userPw;
+
+            // id, pw 비교해서 param 에 txt 출력
+            if (userId.value === 'abc' && userPw.value === '1234') {
+                param.textContent = '로그인 되었습니다.';
+            } else {
+                param.textContent = '아이디 혹은 비밀번호가 틀렸습니다.';
+            }
+
+            // 작성한 아이디와 비밀번호의 흔적이 남지 않게 처리
+            userId.value = '';
+            userPw.value = '';
+        });
+
+
+    </script>
+</body>
+
+</html>
