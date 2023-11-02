@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>formEx3</title>
+  <style>
+    button {
+      cursor: pointer;
+    }
+
+    .shopping-list {
+      border-bottom: 1px solid #000;
+      padding-bottom: 10px;
+    }
+
+    .save-list {
+      padding: 0;
+      list-style-position: inside;
+      width: 350px;
+    }
+
+    .save-list li {
+      display: flex;
+      justify-content: space-between;
+      background-color: #ddd;
+      margin: 10px;
+      padding: 4px 10px;
+    }
+
+    .save-list li .del-btn {
+      border: 1px solid #000;
+      background-color: #fff;
+    }
+
+    .save-list li .del-btn:hover {
+      background-color: #000;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>쇼핑 리스트</h1>
+    <form name="shoppingList" class="shopping-list">
+      <label>제품명:
+        <input type="text" name="itemName" id="item-name">
+      </label>
+      <button type="submit">추가</button>
+      <button type="reset">취소</button>
+    </form>
+
+    <ul class="save-list">
+      <!-- <li><span>text</span><button class="del-btn">삭제</button></li>
+      <li>text</li> -->
+    </ul>
+  </div>
+
+  <script>
+    const shoppingList = document.forms.shoppingList;
+    const itemName = shoppingList.elements.itemName;
+    // console.log(itemName);
+    const saveList = document.querySelector('.save-list');
+
+    shoppingList.addEventListener('submit', evt => {
+      evt.preventDefault();
+
+      const itemValue = itemName.value;
+      // 내용 추가
+      if (itemValue) {
+        // const lists = document.createElement('li');
+        // lists.innerHTML = `<strong>${itemValue}</strong><button class="del-btn">삭제</button>`;
+        // saveList.appendChild(lists);
+        saveList.innerHTML += `<li><strong>${itemValue}</strong><button class="del-btn">삭제</button></li>`;
+
+        itemName.value = '';
+      } else {
+        alert('내용을 입력하세요');
+      }
+
+      // 리스트 제거
+      const delBtn = document.querySelectorAll('.del-btn');
+      // console.log(delBtn);
+
+      // 요소 제거
+      const removeItems = evt => {
+        // console.log(evt.target.closest('li'));
+        evt.target.parentNode.remove();
+      }
+
+      delBtn.forEach(del => del.addEventListener('click', removeItems));
+    });
+
+    // 리스트 제거
+    // saveList.addEventListener('click', evt => {
+    //   const targetBtn = evt.target.classList.contains('del-btn');
+    //   if (targetBtn) {
+    //     // 현재 요소 포함 가장 가까운 조상 요소를 탐색
+    //     evt.target.closest('li').remove();
+    //   }
+    // });
+  </script>
+</body>
+
+</html>

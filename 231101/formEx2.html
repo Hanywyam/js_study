@@ -8,24 +8,56 @@
 </head>
 
 <body>
-  <h3>주문할 커피를선택해 주세요</h3>
-  <input type="checkbox" class="coffee">아메리카노
-  <input type="checkbox" class="coffee">카페라떼
-  <input type="checkbox" class="coffee">카페모카
-  <input type="checkbox" class="coffee">바닐라라떼
-  <input type="checkbox" class="coffee">에스프레소
-  <h2 class="output1">주문안내</h2>
+  <h3>주문할 커피를 선택해 주세요</h3>
+  <input type="radio" name="coffee" id="americano" value="아메리카노"><label for="americano">아메리카노</label>
+  <label for="latte"><input type="radio" name="coffee" id="latte" value="카페라떼">카페라떼</label>
+  <input type="radio" name="coffee" id="mocha" value="카페모카"><label for="mocha">카페모카</label>
+  <input type="radio" name="coffee" id="vanilla" value="바닐라라떼"><label for="vanilla">바닐라라떼</label>
+  <input type="radio" name="coffee" id="espresso" value="에스프레소"><label for="espresso">에스프레소</label>
+  <h3 class="radioText"></h3>
+
   <select name="selectCoffee" id="select-coffee">
-    <option>아메리카노</option>
-    <option>카페라떼</option>
-    <option>카페모카</option>
-    <option>바닐라라떼</option>
-    <option>에스프레소</option>
+    <option>---선택---</option>
+    <option value="아메리카노">아메리카노</option>
+    <option value="카페라떼">카페라떼</option>
+    <option value="카페모카">카페모카</option>
+    <option value="바닐라라떼">바닐라라떼</option>
   </select>
-  <h2 class="output2">선택커피</h2>
+  <h3 class="selectText"></h3>
 
   <script>
+    const radioText = document.querySelector('.radioText');
+    const selectText = document.querySelector('.selectText');
+    const drink = document.querySelector('#select-coffee');
+    const radios = document.querySelectorAll('[name=coffee]');
 
+    // 모든 라디오 버튼을 순회해서 
+    radios.forEach(btn => {
+      // 라디오 버튼의 상태가 변화가 감지되면,
+      btn.addEventListener('change', (e) => {
+        // 클릭한 라디오 버튼의 value(값)을 가져와서 radioText에 대입
+        // radioText.textContent = `주문한 커피는 ${e.target.value}입니다.`;
+
+        const target = e.target;
+
+        // radioText.textContent = `주문한 커피는 ${target.value}입니다.`;
+        // target.checked ? radioText.textContent = `주문한 커피는 ${target.value}입니다.` : false; -> 삼항연산자
+        target.checked && (radioText.textContent = `주문한 커피는 ${target.value}입니다.`); // -> 단락회로 평가
+      })
+    });
+
+    /* 
+    .options; 유사배열로 반환. 속성
+    .options.selectedIndex; select option의 인덱스 번호
+    */
+
+    drink.addEventListener('change', evt => {
+      const opt = evt.target.options; // 내가 클릭한 '그'옵션
+      console.log(opt);
+      const optIdx = opt.selectedIndex;
+
+      selectText.textContent = opt[optIdx].value;
+    });
   </script>
 </body>
 

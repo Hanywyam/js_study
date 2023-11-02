@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+.tap-box {
+  min-width: 400px;
+  max-width: 600px;
+  margin: 50px auto;
+  position: relative;
+  padding-top: 36px; /* padding으로 탭 타이틀이 들어갈 공간을 임의로 만듬 */
+}
+
+.tap-box #tab1 .title {
+  left: 0;
+}
+.tap-box #tab2 .title {
+  left: 33.5%;
+}
+.tap-box #tab3 .title {
+  left: 67%;
+}
+
+/* 각 영역의 택 타이틀 */
+.tap-box li .title {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background-color: #d2de32;
+  text-align: center;
+  font-style: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 33%;
+  height: 36px;
+  text-align: center;
+  line-height: 36px;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+
+  position: absolute;
+  top: 0;
+}
+.tap-box li .title:hover {
+  background-color: #a2c579;
+}
+
+/* 각 영역의 텍스트 박스 */
+.tap-box li .txtBox {
+  background-color: #d2de32;
+  height: 200px; /* 탭의 텍스트 박스는 고정값 */
+  padding: 20px 40px;
+  line-height: 1.8;
+  display: none;
+  /* 기본값은 안보이고, active가 붙어 있을 때만 보여진다. */
+}
+.tap-box li .txtBox h3 {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.tap-box li.active .title,
+.tap-box li.active .txtBox {
+  display: block;
+  background-color: #a2c579;
+}

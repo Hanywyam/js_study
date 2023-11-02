@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>js로 video제어</title>
+  <style>
+    .container {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .container li {
+      width: 30vw;
+      height: 30vw;
+      margin: 0 5px;
+      overflow: hidden;
+    }
+
+    .container li .video-wrapper {
+      transition: .4s;
+      filter: sepia(100%);
+    }
+
+    .container li .video-wrapper:hover {
+      filter: none;
+      transform: scale(1.2);
+    }
+
+    .container li .video-wrapper video {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const lists = document.querySelectorAll('.container li');
+
+      const videoPause = evt => {
+        const targetVideo = evt.target.querySelector('video');
+        targetVideo.pause(); // 일시멈춤
+      };
+
+      // 각 li에게 마우스를 위에 올리면, 올린 비디오
+      lists.forEach(li => {
+        li.addEventListener('mouseenter', evt => {
+          // console.log(evt.target);
+          evt.target.querySelector('video').play();
+        });
+        li.addEventListener('mouseleave', videoPause);
+      });
+    })
+  </script>
+</head>
+
+<body>
+  <ul class="container">
+    <li>
+      <div class="video-wrapper">
+        <video src="./vid.mp4" loop muted></video>
+      </div>
+    </li>
+    <li>
+      <div class="video-wrapper">
+        <video src="./vid.mp4" loop muted></video>
+      </div>
+    </li>
+    <li>
+      <div class="video-wrapper">
+        <video src="./vid.mp4" loop muted></video>
+      </div>
+    </li>
+  </ul>
+
+</body>
+
+</html>

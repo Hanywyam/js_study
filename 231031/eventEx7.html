@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>eventEx7</title>
+    <link rel="stylesheet" href="../common/minireset.min.css">
+    <link rel="stylesheet" href="./eventEx7.css">
+    <script src="./eventEx7.js"></script>
+
+    <!-- 내가 쓴 css / js
+    <style>
+        ul,
+        a {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .tap-box {
+            margin: 50px auto;
+            width: 50%;
+            display: flex;
+            justify-content: space-around;
+            position: relative;
+        }
+
+        .tap-box li {
+            margin: 0 1px;
+            text-align: center;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 20px 20px 0 0;
+            background-color: #22b9f5;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .tap-box .txtBox {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 300px;
+            padding: 50px 30px;
+            box-sizing: border-box;
+            text-transform: none;
+            font-weight: normal;
+            background-color: #22b9f5;
+        }
+
+        a {
+            display: block;
+        }
+
+        .tap-box a.onclick {
+            border-radius: 20px 20px 0 0;
+            background-color: navy;
+        }
+
+        .tap-box .txtBox.action {
+            background-color: navy;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tap = document.querySelector('.tap-box');
+            const tapLi = document.querySelector('.tap-box a');
+            const tapBox = document.querySelector('.tap-box .txtBox');
+
+            tap.addEventListener('click', evt => {
+                evt.preventDefault();
+                tapLi.classList.toggle('onclick');
+                tapBox.classList.toggle('action');
+            });
+        });
+    </script> -->
+</head>
+
+<body>
+    <ul class="tap-box">
+        <li id="tab1" class="active">
+            <a href="#" class="title">html</a>
+            <div class="txtBox">
+                <h3>html tutorial</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora laudantium consequatur
+                    nobis numquam earum, modi nemo </p>
+            </div>
+        </li>
+
+        <li id="tab2">
+            <a href="#" class="title">CSS3</a>
+            <div class="txtBox">
+                <h3>CSS3 tutorial</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora laudantium consequatur
+                    nobis numquam earum, modi nemo </p>
+            </div>
+        </li>
+
+        <li id="tab3">
+            <a href="#" class="title">javascript</a>
+            <div class="txtBox">
+                <h3>javascript tutorial</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora laudantium consequatur
+                    nobis numquam earum, modi nemo </p>
+            </div>
+        </li>
+    </ul>
+</body>
+
+</html>

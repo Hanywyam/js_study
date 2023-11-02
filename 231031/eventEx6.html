@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>eventEx6</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0;
+            background-color: skyblue;
+            font-weight: bold;
+            font-size: 5rem;
+            text-align: right;
+            height: 300vh;
+        }
+
+        nav {
+            /* background-color: #ddd; */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            transform: translateX(-200px);
+            transition: .4s;
+        }
+
+        nav .menu-list {
+            list-style: none;
+            margin: 0;
+            padding: 80px 0 0 40px;
+            box-sizing: border-box;
+            background-color: #0174be;
+            width: 200px;
+            height: 100%;
+            line-height: 2;
+        }
+
+        nav .menu-btn {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            width: 40px;
+            height: 100px;
+            background-color: #0174be;
+            position: absolute;
+            top: 0;
+            left: 200px;
+        }
+
+        nav .menu-btn span {
+            display: block;
+            /* 방법 1)
+            writing-mode 작성시 영어의 글자 방향
+            text-orientation: upright;
+             글자 세로쓰기의 방향 상속 
+            writing-mode: wertical-lr; 
+            
+            방법 2) */
+            transform: rotate(90deg);
+            transform-origin: 80% 0;
+            margin-top: 40px;
+        }
+    </style>
+
+    <!-- 내가 쓴 css/js
+    <style>
+        body {
+            background-color: #ddd;
+        }
+
+        h1 {
+            text-align: right;
+            font-size: 3rem;
+            height: 400vh;
+        }
+
+        .menu-wrap {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: skyblue;
+            width: 10%;
+            height: 100%;
+            line-height: 2;
+            /* overflow: hidden; */
+            transition: .5s;
+        }
+
+        .menu-list {
+            list-style: none;
+            text-align: center;
+            margin: 0;
+            padding: 100px 0;
+        }
+
+        .menu-btn {
+            display: inline-block;
+            position: absolute;
+            top: 30px;
+            left: 43%;
+            padding: 15px 100px;
+            background-color: skyblue;
+            transition: .5s;
+            transform: rotate(90deg);
+        }
+
+        .menu-wrap.on {
+            width: 20%;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.querySelector('.menu-wrap');
+            const menuBtn = document.querySelector('.manu-btn');
+
+            menuBtn.addEventListener("click", (evt) => {
+                evt.preventDefault();
+                menuBtn.textContent = "close";
+                nav.classList.toggle("on");
+            });
+        });
+    </script>
+     -->
+</head>
+
+<body>
+    <h1>contents</h1>
+    <nav class="menu-wrap">
+        <menu class="menu-list">
+            <li><a href="#">menu1</a></li>
+            <li><a href="#">menu2</a></li>
+            <li><a href="#">menu3</a></li>
+            <li><a href="#">menu4</a></li>
+        </menu>
+        <a href="#" id="close-btn" class="menu-btn"><span>close</span></a>
+        <a href="#" id="open-btn" class="menu-btn"><span>open</span></a>
+    </nav>
+
+    <script>
+        const nav = document.querySelector('nav');
+        const openBtn = document.querySelector('#open-btn');
+        const closeBtn = document.querySelector('#close-btn');
+
+        openBtn.addEventListener("click", evt => {
+            evt.preventDefault();
+            nav.style.transform = 'translateX(0)';
+            openBtn.style.display = 'none';
+        });
+        closeBtn.addEventListener("click", evt => {
+            evt.preventDefault();
+            nav.style.transform = 'translateX(-200px)';
+            openBtn.style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>

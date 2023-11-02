@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>eventEx8</title>
+    <style>
+        .container {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 500px;
+            height: 400px;
+            margin: 50px auto;
+            border: 3px solid #000;
+            background-color: #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: no-repeat 50% / cover;
+        }
+
+        .container .btn {
+            width: 40px;
+            height: 50px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 2rem;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.8);
+            cursor: pointer;
+        }
+
+        .container .btn:hover {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<!-- 
+    우측버튼을 클릭하면 배열이 늘어남 
+    좌측버튼을 클릭하면 배열이 줄어듬
+    forEach, if, else 문 클릭한 값에 인덱스 번호를 ${}에 적용 
+-->
+
+<body>
+    <ul class="container">
+        <!-- &lt; == < / &gt; == > -->
+        <li class="btn" id="pre-btn">&lang;</li>
+        <li class="btn" id="next-btn">&rang;</li>
+    </ul>
+
+    <script>
+        const container = document.querySelector('.container');
+        const btns = document.querySelectorAll('.btn');
+        // const 좌버튼 = document.querySelector('#pre-btn');
+        // const 우버튼 = document.querySelector('#next-btn');
+
+        const imgs = ['451952/fff', '662549/fff', 'ae445a/fff', 'ff3fa4/fff', '662549/fff', 'ae445a/fff', 'ff3fa4/fff'];
+
+        let idx = 0;
+        btns.forEach(btn => {
+            btn.addEventListener("click", (evt) => {
+                // 내가 클릭한 그 요소의 아이디를 내가 가져오겠다.
+                const target = evt.target.id;
+
+                if (target === 'pre-btn') { //문자열로 이전 버튼 비교
+                    idx--;
+                    (idx < 0) ? idx = imgs.length - 1 : false;
+                } else { //이외 버튼
+                    idx++;
+                    (idx >= imgs.length) ? idx = 0 : false;
+                }
+                container.style.backgroundImage = `url(https://placeholder.com/500x400/${imgs[idx]}?text=img${idx + 1})`
+            });
+        });
+
+        /*
+        
+        imgs.forEach((i, idx) => {
+            if () {
+                for (i = 0; i <= 4; i++) {
+                    좌버튼.addEventListener("click", () => {
+                        return i++;
+                    });
+                }
+            } else if () {
+                우버튼.addEventListener("click", () => {
+                    return i--;
+                });
+            }
+        });
+         */
+    </script>
+</body>
+
+</html>

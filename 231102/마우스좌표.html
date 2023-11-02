@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>마우스좌표</title>
+  <style>
+    body {
+      height: 200vh;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>마우스좌표</h1>
+  <p>클릭한 곳의 좌표값.</p>
+  <script>
+    addEventListener('click', evt => {
+      // 브라우저 기준 마우스 좌표. 스크롤과 상관없음. == 보여지는 화면 기준
+      console.log('브라우저 기준 x좌표 event.clientX: ', evt.clientX);
+      console.log('브라우저 기준 y좌표 event.clientY: ', evt.clientY);
+
+      // html 요소 기준 마우스 좌표. 스크롤 포함 인식.
+      console.log('html 요소 기준 x좌표 event.offsetX:', evt.offsetX);
+      console.log('html 요소 기준 y좌표 event.offsetY:', evt.offsetY);
+
+      // 문서 페이지 기준 마우스 좌표. 스크롤 포함 인식.
+      console.log('문서 기준 브라우저 왼쪽부터 x좌표 event.pageX:', evt.pageX);
+      console.log('문서 기준 브라우저 상단부터 y좌표 event.pageY:', evt.pageY);
+
+      // 디바이스 기준. 스크롤과 상관없음.
+      console.log('디바이스 기준 x좌표 event.screenX:', evt.screenX);
+      console.log('디바이스 기준 y좌표 event.screenY:', evt.screenY);
+    })
+  </script>
+</body>
+
+</html>

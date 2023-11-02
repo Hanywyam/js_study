@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>window객체사이즈</title>
+  <style></style>
+</head>
+
+<body>
+  <h1>window 객체들의 사이즈 확인</h1>
+  <p><a href="https://ko.javascript.info/size-and-scroll" target="_blank">요소 사이즈와 스크롤</a></p>
+  <img src="https://ko.javascript.info/article/size-and-scroll/metric-all.svg" alt="기하 프로퍼티">
+
+  <script>
+    console.log('모니터 해상도 너비:' + window.screen.width);
+    console.log('모니터 해상도 높이:' + screen.height);
+    console.log('모니터 화면의 작업표시줄 제외 너비:' + screen.availWidth);
+    console.log('모니터 화면의 작업표시줄 제외 높이:' + screen.availHeight);
+
+    console.log('------------');
+    console.log('브라우저 전체 너비:' + outerWidth);
+    console.log('브라우저 전체 높이:' + outerHeight);
+    console.log('스크롤바 포함 브라우저 내부 너비(순수화면 사이즈):' + window.innerWidth);
+    console.log('스크롤바 포함 브라우저 내부 높이:' + innerHeight);
+
+    console.log('------------');
+    // .documentElement 문서 전체
+    console.log('스크롤바 영역 미포함 브라우저 내부 너비:' + document.documentElement.clientWidth);
+    console.log('스크롤바 영역 미포함 브라우저 내부 높이:' + document.documentElement.clientHeight);
+    // webkit 구버전
+    console.log('구 스크롤바 영역 미포함 브라우저 내부 너비:' + document.body.clientWidth);
+
+    console.log('------------');
+    console.log('스크롤바로 숨겨진 영역까지 포함한 컨텐츠 너비:' + document.documentElement.scrollWidth);
+    console.log('스크롤바로 숨겨진 영역까지 포함한 컨텐츠 높이:' + document.documentElement.scrollHeight);
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+@charset "utf-8";
+.tab-menu {
+  min-width: 400px;
+  max-width: 600px;
+  margin: 50px auto;
+  position: relative;
+  padding-top: 36px; /* 탭 타이틀이 들어갈 공간 */
+}
+.tab-menu #tab1 .title {
+  left: 0;
+}
+.tab-menu #tab2 .title {
+  left: 33.5%;
+}
+.tab-menu #tab3 .title {
+  left: 67%;
+}
+/* 각 영역의 탭 타이틀 */
+.tab-menu li .title {
+  background-color: #d2de32;
+
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 33%;
+  height: 36px;
+  /* text-align: center;
+  line-height: 36px; */
+  display: grid;
+  place-items: center;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+
+  position: absolute;
+  top: 0;
+}
+.tab-menu li .title:hover {
+  background-color: #a2c579;
+}
+/* 각 영역의 텍스트 박스 */
+.tab-menu li .txt-box {
+  background-color: #d2de32;
+  height: 180px;
+  padding: 20px 40px;
+  display: none;
+}
+.tab-menu li .txt-box h3 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.tab-menu li.active .title {
+  display: grid;
+  background-color: #219c90;
+  color: #fff;
+}
+.tab-menu li.active .txt-box {
+  display: block;
+  background-color: #219c90;
+  color: #fff;
+}
