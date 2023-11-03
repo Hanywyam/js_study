@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>offset</title>
+  <style>
+    body {
+      margin: 0;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+
+    .box {
+      position: absolute;
+    }
+
+    #box1 {
+      width: 500px;
+      height: 200px;
+      background-color: #b5cb99;
+      margin-top: 80px;
+      margin-left: 100px;
+      top: 500px;
+      left: 150px;
+    }
+
+    #box2 {
+      width: 150px;
+      height: 150px;
+      background-color: #d988b9;
+      margin-top: 1000px;
+      left: 400px;
+    }
+
+    #box3 {
+      width: 200px;
+      height: 400px;
+      padding: 10px;
+      background-color: #8eaccd;
+      top: 200px;
+      left: 50px;
+      border: 4px solid #000;
+    }
+
+    #box4 {
+      width: 100px;
+      height: 100px;
+      background-color: #ff6969;
+      top: 50px;
+      left: 50px;
+    }
+
+    .container {
+      position: relative;
+      border: 4px solid chocolate;
+      top: 100px;
+      left: 50px;
+      width: 300px;
+      height: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box" id="box1">box1</div>
+
+  <div class="wrapper">
+    <div class="box" id="box2">box2</div>
+  </div>
+
+  <div class="box" id="box3">box3</div>
+
+  <div class="container">
+    <div class="box" id="box4">box4</div>
+  </div>
+
+  <script>
+    /* https://ko.javascript.info/size-and-scroll
+
+      요소 element의 거리
+      offsetParent: position이 설정되어 있는 조상 요소 기준. 없으면 body 기준 반환 
+      offsetTop: offsetParent부터 위에서 떨어져 있는 거리
+      offsetleft: offsetParent부터 왼쪽부터 떨어져 있는 거리
+      
+      요소의 크기
+      offsetWidth: width + padding + border + scrollbar
+      offsetHeight: height + padding + border + scrollbar
+      clientWidth: width + padding
+      clientHeight: height + padding
+    */
+
+    const box1 = document.querySelector('#box1');
+    const box2 = document.querySelector('#box2');
+    const box3 = document.querySelector('#box3');
+    const box4 = document.querySelector('#box4');
+
+    console.log('box1.offsetParent', box1.offsetParent); // <body>
+    // body를 기준으로 box1의 위치 확인
+
+    console.log('box2.offsetParent', box2.offsetParent); // <body>
+    // body를 기준으로 box2의 위치 확인
+
+    console.log('box4.offsetParent', box4.offsetParent); // .container
+    // .container를 기준으로 box4의 위치 확인.
+
+    console.log('----------');
+
+    console.log('box1.offsetTop', box1.offsetTop); // 580
+    // parent 기준 위에서 요소가 있는 곳까지의 거리. marginTop + top == 580.
+    console.log('box1.offsetLeft', box1.offsetLeft); // 250
+    // parent 기준 위에서 요소가 있는 곳까지의 거리. marginLeft + left == 250.
+
+    console.log('box2.offsetTop', box2.offsetTop); //1000
+    console.log('box2.offsetLeft', box2.offsetLeft); //400
+    console.log('box2.offsetWidth', box2.offsetWidth); //150
+    // 요소의 크기. width + padding + border + scrollbar
+    console.log('box2.offsetHeight', box2.offsetHeight); //150
+    // 요소의 크기. height + padding + border + scrollbar
+    console.log('box3.offsetTop', box3.offsetTop); //200
+    console.log('box3.offsetLeft', box3.offsetLeft); //50
+    console.log('box3.offsetWidth', box3.offsetWidth); //228 
+    // w200+p(10*2)+b(4*2)+sc0 == 228
+    console.log('box3.offsetHeight', box3.offsetHeight); //428 
+    // h400+p(10*2)+b(4*2)+sc0 ==428
+    console.log('box3.clientWidth', box3.clientWidth); //220. w+p
+    console.log('box3.clientHeight', box3.clientHeight); //420. h+p
+
+    console.log('box4.offsetTop', box4.offsetTop); //50 .container 기준
+    console.log('box4.offsetLeft', box4.offsetLeft); //50 .container 기준
+  </script>
+</body>
+
+</html>

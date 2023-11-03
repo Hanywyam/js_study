@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>scrollY</title>
+  <style>
+    body {
+      background-color: cornflowerblue;
+      margin: 0;
+      padding: 0;
+      height: 200vh;
+    }
+
+    main {
+      height: 400vh;
+      font-size: 3rem;
+      overflow: hidden;
+    }
+
+    main h2 {
+      margin-top: 200px;
+      background-color: #000;
+      color: #fff;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background-color: crimson;
+      border-bottom: 3px solid #000;
+      transition: .4s;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    h1 {
+      background-color: darkcyan;
+      margin: 20px;
+    }
+
+    .global-menu {
+      padding: 20px;
+      width: 300px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    a {
+      padding: 5px 10px;
+      color: inherit;
+      text-decoration: none;
+      display: block;
+    }
+
+    header .global-menu a:hover {
+      background-color: greenyellow;
+      color: #fff;
+    }
+
+    header.active {
+      background-color: transparent;
+      height: 80px;
+      border-bottom-width: 1px;
+    }
+
+    header.active .global-menu {
+      font-size: 1rem;
+    }
+
+    header.active .global-menu a {
+      margin: 5px 10px;
+    }
+
+    header.active+main {
+      background-color: #a8df8e;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>로고</h1>
+    <menu class="global-menu">
+      <li><a href="#">메뉴1</a></li>
+      <li><a href="#">메뉴2</a></li>
+      <li><a href="#">메뉴3</a></li>
+      <li><a href="#">메뉴4</a></li>
+    </menu>
+  </header>
+
+  <main>
+    <h2>main</h2>
+  </main>
+  <script>
+    /*
+      scrollTop: 스크롤을 스무스하게 올릴 수 있음.
+      window.pageYOffset: y축 방향으로 스크롤 한 거리. 오랜된 버전과 호환
+      window.scrollY: y축 방향으로 얼마나 스크롤 되었는지 값으로 반환. 읽기 전용.
+      pageXOffset: x축 스크롤한 거리
+      scrollX: x축 스크롤한 거리. 읽기 전용.
+
+      box1.scrollTop (o)
+      box1.scrollY  (x)
+
+      document.documentElement.scrollTop: 스크롤에 따라 숨겨진 컨텐츠의 가로로 y축 방향으로 스크롤한 거리 값으로 반환.
+      
+    */
+
+    const header = document.querySelector('header');
+    const h2 = document.querySelector('main h2');
+    addEventListener('scroll', () => {
+      console.log('scrollTop', document.documentElement.scrollTop);
+      console.log('pageYOffset', pageYOffset);
+      console.log('scrollY', scrollY);
+
+
+      /* if (scrollY > 200) {
+        header.classList.add('active');
+      } else if (scrollY <= 200) {
+        header.classList.remove('active');
+      } */
+
+      let ht = h2.offsetTop + header.offsetHeight;
+      console.log(header.offsetHeight);
+      /* if (scrollY > ht) {
+        header.classList.add('active');
+      } else if (scrollY <= ht) {
+        header.classList.remove('active');
+      } */
+
+      // classList.toggle('클래스명', 상태가 없으면 false)
+      header.classList.toggle('active', scrollY > ht);
+    })
+
+
+  </script>
+</body>
+
+</html>

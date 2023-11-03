@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>scrollTo+scrollBy+scrollIntoView</title>
+  <style>
+    body {
+      height: 200vh;
+    }
+
+    .flex-btn {
+      display: flex;
+      position: fixed;
+    }
+
+    .flex-btn .btn {
+      border: 3px solid #000;
+      padding: 5px 10px;
+      text-align: center;
+      font-weight: bold;
+      margin: 10px;
+      font-size: 1.2rem;
+    }
+
+    .flex-btn .btn:hover {
+      background-color: #000;
+      color: #fff;
+    }
+
+    .box1 {
+      position: absolute;
+      top: 200px;
+      left: 50px;
+      width: 200px;
+      height: 100px;
+      background-color: #e9b824;
+    }
+
+    .box2 {
+      position: fixed;
+      top: 500px;
+      left: 30px;
+      width: 300px;
+      height: 200px;
+      background-color: #219c90;
+    }
+
+    .box3 {
+      position: absolute;
+      top: 500px;
+      left: 400px;
+      width: 100px;
+      height: 400px;
+      background-color: #ee9322;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flex-btn">
+    <div class="btn btn1">box1 이동</div>
+    <div class="btn btn1-1">box1 이동</div>
+    <div class="btn btn2">box2 이동</div>
+    <div class="btn btn3">box3 이동</div>
+    <div class="btn btn4">스크롤 이동</div>
+  </div>
+
+  <div class="container">
+    <div class="box box1">box1</div>
+    <div class="box box2">box2</div>
+    <div class="box box3">box3</div>
+  </div>
+  <script>
+    /*
+      pageX; 페이지 기준
+      window.scrollTo(pageX, pageY); 절대 좌표 '스크롤'값
+      window.scrollBy(x,y); 현재 스크롤 상태를 기준으로 상대적 '스크롤' 정보 변경
+      window.scrollIntoView(); 화면 처음으로 해당 요소가 '스크롤'로 이동
+      false값인 경우 화면의 제일 아래로 이동.
+    */
+
+    const btns = document.querySelectorAll('.flex-btn .btn');
+    const boxs = document.querySelectorAll('.box');
+
+    // position: absolte;
+    btns[0].addEventListener('click', () => {
+      console.log(boxs[0].offsetTop); //box1의 Y축 거리 == 200
+      const box1Y = boxs[0].offsetTop
+      scrollTo(0, box1Y);
+    });
+
+    btns[1].addEventListener('click', () => {
+      const box1Y = boxs[0].offsetTop
+      scrollTo({
+        top: box1Y,
+        behavior: 'smooth'
+      });
+    });
+
+    btns[2].addEventListener('click', () => {
+      const box2Y = boxs[1].offsetTop;
+      scrollTo(0, box2Y);
+    });
+
+    btns[3].addEventListener('click', () => {
+      // boxs[2].scrollIntoView(); 화면의 처음 요소가 보임
+      boxs[2].scrollIntoView(false);  // 화면의 아래 요소가 보임
+    });
+
+    btns[4].addEventListener('click', () => {
+      scrollBy(0, 100); //상대값으로 현재 위치에서 스크롤 이동
+    });
+
+  </script>
+</body>
+
+</html>

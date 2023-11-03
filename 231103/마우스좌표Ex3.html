@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>마우스좌표Ex3</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      height: 100%;
+      background-color: #00394f;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .container .txt1 {
+      color: #fff;
+      font-size: 6rem;
+      font-weight: normal;
+      position: absolute;
+    }
+
+    .container .txt2 {
+      color: crimson;
+      font-size: 3rem;
+      font-style: italic;
+      letter-spacing: 10px;
+      position: absolute;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="txt1">javascript</h1>
+    <p class="txt2">abcd efgh jkl</p>
+  </div>
+
+  <script>
+    const h1 = document.querySelector('h1');
+    const h2 = document.querySelector('p');
+
+    const hendleEvents = evt => { //리터럴 방식으로 작업
+      let x = evt.clientX;
+      let y = evt.clientY;
+
+      // 스크롤바 미포함. 순수 사용자 화면
+      const clientWidth = document.documentElement.clientWidth;
+      const moveX = x / clientWidth * 20;
+      const moveY = y / clientWidth * 20;
+
+      // 움직임
+      h1.style.transform = `translate($(moveX)px, $(moveY)px)`;
+      h2.style.transform = `translate($(moveX)px, $(moveY)px)`;
+
+      // 블러
+      h1.style.filter = `blur(${moveX * moveY / 8}px)`;
+      h2.style.filter = `blur(${moveX * moveY / 8}px)`;
+
+      // 글자가 멀어지는
+      h2.style.letterSpacing = `${(movX * movY + (clientWidth / 20))}px`;
+    }
+
+    addEventListener('mousemove', hendleEvents);
+
+  </script>
+
+  <!-- js
+  <script>
+    const java = document.querySelector('.txt1');
+    const abcd = document.querySelector('.txt2');
+    // 움직임. 
+    addEventListener('mousemove', e => {
+      let x = e.clientX;
+      let y = e.clientY;
+      console.log(x, y);
+
+      abcd.textContent = 'abcd jkl';
+      // java x축. abcd y축. 블러 style.filter = `blur()`;
+      java.style.filter = `blur(${x} / 100)`;
+      abcd.style.filter = `blur(${y} / 100)`;
+
+      // 글자가 멀어지는 style.letterSpacing
+    })
+  </script> -->
+</body>
+
+</html>

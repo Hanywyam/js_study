@@ -11,6 +11,7 @@
       background-color: #ddd;
       overflow: hidden;
       position: relative;
+      color: #fff;
     }
 
     .emoji {
@@ -18,12 +19,14 @@
       position: absolute;
       top: 0;
       left: 0;
+      cursor: none;
     }
   </style>
 </head>
 
 <body>
   <div class="container">
+    <p>마우스를 누르면(mousedown) 움직이고(mousemove) 마우스를 뗏을 때(mouseup) 멈춤(리스너 제거)</p>
     <div class="emoji"> 👩🏻‍💻 </div>
     <!-- <div class="emoji"> 🎅 </div> -->
   </div>
@@ -39,7 +42,9 @@
 
     addEventListener('mousedown', () => {
       addEventListener('mousemove', onMoving);
-      addEventListener('mouseup', emoji.style.transform.remove());
+      addEventListener('mouseup', () => {
+        removeEventListener('mousemove', onMoving)
+      });
     });
 
 
