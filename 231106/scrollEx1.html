@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>scrollEx1</title>
+  <style>
+    /* html {
+      scroll-behavior: smooth;      
+    } css : 탑으로 스크롤 올려줌? */
+
+    .container {
+      height: 200vh;
+      position: relative;
+    }
+
+    p {
+      font-weight: bold;
+      font-size: 5rem;
+      margin: 0;
+      bottom: 0;
+    }
+
+    .btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      cursor: pointer;
+      font-size: 5rem;
+      transition: .5s;
+      animation: tree infinite 2s ease-in-out alternate;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    @keyframes tree {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(-5deg)
+      }
+
+      50% {
+        transform: translateY(-20px) rotate(5deg)
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <p>top</p>
+  </div>
+
+  <a href="#" class="up-to btn" title="맨 위로 올라가는 버튼">🎄</a>
+  <!-- title == a태그에 사용. 접근성을 높이고 싶을 때 쓸수 있다. -->
+  <script>
+    const upTo = document.querySelector('.up-to');
+
+    upTo.addEventListener('click', evt => {
+      evt.preventDefault();
+
+      scrollTo({
+        top: 50,
+        behavior: 'smooth'
+      })
+    })
+
+    addEventListener('scroll', () => {
+      let upToHeight = document.documentElement.scrollTop;
+
+      // if (scrollY > 300) {
+      if (upToHeight > 300) {
+        upTo.style.opacity = 1;
+        upTo.style.pointerEvents = 'auto';
+      } else {
+        upTo.style.opacity = 0;
+        upTo.style.pointerEvents = 'none';
+      }
+    })
+  </script>
+
+  <!-- 내가 쓴 js
+  <script>
+    const btn = document.querySelector('.btn');
+    let txt = document.querySelector('p');
+
+    btn.addEventListener('click', () => {
+      txt = txt.offsetTop
+      scrollTo({
+        top: txt,
+        behavior: 'smooth'
+      });
+    })
+  </script> -->
+</body>
+
+</html>

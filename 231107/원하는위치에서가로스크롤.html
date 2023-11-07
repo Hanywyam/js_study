@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>원하는위치에서가로스크롤</title>
+  <style>
+    body * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    body {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .box {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .box:nth-child(1) {
+      background-color: #ebb748;
+    }
+
+    .box:nth-child(3) {
+      background-color: #eb2d2d;
+    }
+
+    .box:nth-child(4) {
+      background-color: #4fe288;
+    }
+
+    .horizontal-wrap {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .sticky-box {
+      position: sticky;
+      top: 0;
+      left: 0;
+    }
+
+    .horizontal-box {
+      display: flex;
+      overflow-x: scroll;
+    }
+
+    /* 
+    .horizontal-box li {
+      width: 100vw;
+      height: 100vh;
+    } */
+
+    .horizontal-box li:nth-child(1) {
+      background-color: #5cc7da;
+    }
+
+    .horizontal-box li:nth-child(2) {
+      background-color: #a18ae0;
+    }
+
+    .horizontal-box li:nth-child(3) {
+      background-color: #d180bd;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- scroll / transform -->
+  <article class="box">
+    <h2>box1</h2>
+  </article>
+  <!-- 가로 스크롤 영역 -->
+  <div class="horizontal-wrap">
+    <div class="sticky-box">
+      <ul class="horizontal-box">
+        <li class="row1">row-box1</li>
+        <li class="row2">row-box2</li>
+        <li class="row3">row-box3</li>
+      </ul>
+    </div>
+  </div>
+  <article class="box">
+    <h2>box3</h2>
+  </article>
+  <article class="box">
+    <h2>box4</h2>
+  </article>
+
+  <script>
+
+  </script>
+</body>
+
+</html>

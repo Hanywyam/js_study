@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>scrollEx2</title>
+  <style>
+    body {
+      margin: 0;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.3rem;
+      background-color: #E5D4FF;
+    }
+
+    nav {
+      background-color: #D0A2F7;
+      padding: 20px;
+    }
+
+    h1 {
+      background-color: #39A7FF;
+      color: #fff;
+      margin: 0;
+      padding: 50px;
+      position: sticky;
+      top: 0;
+    }
+
+    main {
+      height: 400vh;
+    }
+
+    footer {
+      background-color: #000;
+      color: #fff;
+      padding: 100px;
+      border-top: 5px solid #FFC436;
+    }
+
+    .slide-banner {
+      background-color: #FA7070;
+      width: 300px;
+      height: 100px;
+      display: grid;
+      place-items: center;
+      transition: .2s;
+      position: fixed;
+      right: -320px;
+      bottom: 20vh;
+      /* transform: translateX(0); */
+    }
+
+    .slide-banner.on {
+      /* transform: translateX(-320px); */
+      right: 0
+    }
+  </style>
+</head>
+
+<body>
+  <nav>내비게이션</nav>
+  <h1>scrollEx2</h1>
+  <main>
+    <h2>원하는 위치에서 실행</h2>
+  </main>
+  <footer>푸터</footer>
+
+  <div class="slide-banner">배너입니다</div>
+
+  <script>
+    const banner = document.querySelector('.slide-banner');
+    const footer = document.querySelector('footer');
+
+    // .offsetTop; offsetParent를 기준으로 위에서부터 떨어져 있는 거리. 부모에 포지션이 없는 경우 문서 기준
+    const footerOffsetTop = footer.offsetTop;
+    const clientHt = document.documentElement.clientHeight;// 스크롤 제외 문서 높이(현재 컨텐츠 화면 높이)
+    console.log(footerOffsetTop);// 4069
+    console.log(clientHt);// 955
+    // console.log(document.body.style.height);
+    console.log(footer.clientHeight);// 228 w+p
+    console.log(footer.offsetHeight);// 233 w+p+b+srcoll
+
+    const result = footerOffsetTop - clientHt - footer.clientHeight;
+
+    addEventListener('scroll', () => {
+      // console.log(scrollY);
+      // if (scrollY >= result) {// 배너 보임
+      //   banner.classList.add('on');
+      // } else {// 배너 숨김
+      //   banner.classList.remove('on');
+      // }
+      banner.classList.toggle('on', scrollY >= result);
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>scrollEx4</title>
+  <link rel="stylesheet" href="../common/minireset.min.css">
+  <link rel="stylesheet" href="./scrollEx4.css">
+  <script defer src="./scrollEx4.js"></script>
+
+  <!-- 내가 쓴 css
+  <style>
+    body,
+    menu,
+    a {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      width: 100%;
+      height: 150px;
+      padding: 0 2vw;
+      box-sizing: border-box;
+      background-color: slategrey;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      transition: .5s;
+    }
+
+    header .title {
+      padding: 0;
+      width: 120px;
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      color: #fff;
+      background-color: #000;
+    }
+
+    header .gnb {
+      display: flex;
+    }
+
+    header .gnb a {
+      display: block;
+      padding: 20px;
+      margin: 0 5px;
+      font-weight: bold;
+    }
+
+    header .gnb a:hover {
+      background-color: #fff;
+      color: cadetblue;
+    }
+
+    header.active {
+      background-color: cadetblue;
+      height: 100px;
+      border-bottom-width: 1px;
+    }
+
+    main .bg-item,
+    main h2 {
+      width: 100%;
+      height: 90vh;
+      font-size: 3rem;
+    }
+
+    main h2 {
+      margin-top: 150px;
+    }
+
+    .bg-item:nth-child(2) {
+      background-color: #593b22;
+    }
+
+    .bg-item:nth-child(3) {
+      background-color: #245922;
+    }
+
+    .bg-item:nth-child(4) {
+      background-color: #243859;
+    }
+
+    .bg-item:last-child {
+      background-color: #3f2459;
+    }
+
+    @media (max-width: 720px) {
+      .menu-wrap {
+        width: 100%;
+        height: 150px;
+        position: relative;
+      }
+
+      .gnb {
+        flex-flow: column;
+        position: absolute;
+        width: 100vw;
+        top: 100%;
+        left: -110px;
+        background-color: #000;
+        color: #fff;
+        text-align: center;
+      }
+    }
+  </style> -->
+</head>
+
+<body>
+  <header>
+    <nav class="transition">
+      <h1 class="title flex-wrap">
+        <strong class="logo flex-wrap transition">로고</strong>
+        <span class="heading-text transition">부드럽게 이동해보자</span>
+      </h1>
+
+      <div class="menu-wrap flex-wrap">
+        <!-- 모바일 아이콘 -->
+        <div class="toggle-icon flex-wrap">
+          <div class="inner-icon">
+            <span class="bar1 transition"></span>
+            <span class="bar2 transition"></span>
+            <span class="bar3 transition"></span>
+          </div>
+          <!-- 메뉴 -->
+          <menu class="gnb flex-wrap">
+            <li><a href="#box1" class="btn">box1</a></li>
+            <li><a href="#box2" class="btn">box2</a></li>
+            <li><a href="#box3" class="btn">box3</a></li>
+            <li><a href="#box4" class="btn">box4</a></li>
+          </menu>
+        </div>
+      </div>
+    </nav>
+    <div class="header-box">header</div>
+  </header>
+
+  <main>
+    <div class="bg-item box1">box1</div>
+    <div class="bg-item box2">box2</div>
+    <div class="bg-item box3">box3</div>
+    <div class="bg-item box4">box4</div>
+  </main>
+
+  <!-- 내가 쓴 js
+  <script>
+    const header = document.querySelector('header');
+
+    addEventListener('scroll', () => {
+      header.classList.toggle('active', scrollY);
+    })
+
+    const btns = document.querySelectorAll('.gnb .btn');
+    const box = document.querySelectorAll('.bg-item');
+    const title = document.querySelector('.title');
+
+    title.addEventListener('click', (e) => {
+      e.scrollTop
+    });
+
+    btns[0].addEventListener('click', (e) => {
+      e.preventDefault();
+      const box1 = box[0].offsetTop - 100;
+      scrollTo({
+        top: box1,
+        behavior: 'smooth'
+      })
+    });
+    btns[1].addEventListener('click', (e) => {
+      e.preventDefault();
+      const box2 = box[1].offsetTop - 100;
+      scrollTo({
+        top: box2,
+        behavior: 'smooth'
+      })
+    });
+    btns[2].addEventListener('click', (e) => {
+      e.preventDefault();
+      const box3 = box[2].offsetTop - 100;
+      scrollTo({
+        top: box3,
+        behavior: 'smooth'
+      })
+    });
+    btns[3].addEventListener('click', (e) => {
+      e.preventDefault();
+      const box4 = box[3].offsetTop;
+      scrollTo({
+        top: box4,
+        behavior: 'smooth'
+      })
+    });
+
+  </script> -->
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>scrollEx5</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .bar-wrap {
+      width: 100vw;
+      height: 10px;
+      background-color: #000;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    .txt-box {
+      height: 500vh;
+      font-size: 2rem;
+    }
+
+    .bar {
+      width: 0;
+      height: 100%;
+      background-color: #888;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 스크롤값 나누기 백분율 퍼센트..로 계산해서 progress bar -->
+  <div class="bar-wrap">
+    <div class="bar"></div>
+  </div>
+  <div class="txt-box">
+    <h1>progress bar</h1>
+  </div>
+
+  <script>
+    // console.log(scrollY);
+    // console.log(document.documentElement.scrollTop);
+    // console.log(pageYOffset);
+    // console.log(document.documentElement.scrollHeight);
+
+    const bar = document.querySelector(".bar-wrap .bar");
+    addEventListener("scroll", () => {
+      const DOCscrollTop = document.documentElement.scrollTop;
+      console.log(DOCscrollTop);
+      const scrollHt = document.documentElement.scrollHeight; //전체화면 길이
+      const clientHt = document.documentElement.clientHeight; //보여지는 화면 길이
+
+      const getProgss = DOCscrollTop / (scrollHt - clientHt) * 100
+
+
+      bar.style.width = getProgss + '%';
+    })
+
+
+  </script>
+</body>
+
+</html>

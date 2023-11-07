@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>scrollEx2</title>
+  <style>
+    body,
+    h2,
+    p {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    nav {
+      width: 100%;
+      height: 100px;
+      line-height: 100px;
+      background-color: orange;
+      font-size: 1.2rem;
+    }
+
+    .box1 {
+      width: 100%;
+      height: 200px;
+      line-height: 200px;
+      background-color: skyblue;
+      font-weight: bold;
+
+      position: sticky;
+      top: 0;
+    }
+
+    main {
+      margin-top: 200px;
+      height: 200vh;
+    }
+
+    .box2 {
+      width: 300px;
+      height: 100px;
+      line-height: 100px;
+      background-color: rgb(160, 220, 20);
+      position: fixed;
+      right: 0;
+      bottom: 50px;
+      opacity: 0;
+      transition: .5s;
+    }
+
+    .box2.on {}
+
+    footer {
+      width: 100%;
+      height: 130px;
+      line-height: 130px;
+      background-color: #000;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>내비게이션</nav>
+
+  <div class="box1">
+    <h2>scrollEx2</h2>
+  </div>
+
+  <main>
+    <p>원하는 위치에서 실행</p>
+
+  </main>
+
+  <footer>푸터</footer>
+
+  <div class="box2">
+    <p>배너입니다.</p>
+  </div>
+
+  <script>
+    const box = document.querySelector('.box2');
+    const footer = document.querySelector('footer');
+
+    // .offsetTop; == offsetParent를 기준으로 위에서부터 떨어져 있는거리. 부모에 포지션이 없는 경우 문서 기준.
+    const footerOffsetTop = footer.offsetTop;
+    const clientHt = document.documentElement.clientHeight; //스크롤 제외 문서 높이 (현재 컨텐츠 화면 높이)
+    console.log(footerOffsetTop);
+    console.log(clientHt);
+    console.log(document.body.style.height);
+    console.log(footer.clientHeight);
+    console.log(footer.offsetHeight);
+
+    addEventListener('scroll', () => {
+      let upToHeight = document.documentElement.scrollTop;
+
+      if (upToHeight > 300) {
+        box.style.opacity = 1;
+        box.style.transform = 'translateX(0%)';
+      } else {
+        box.style.opacity = 0;
+        box.style.transform = 'translateX(100%)';
+      }
+    })
+  </script>
+</body>
+
+</html>

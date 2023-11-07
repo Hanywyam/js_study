@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>scrollEx6</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100px;
+      line-height: 100px;
+      color: #fff;
+      background-color: darkolivegreen;
+      transition: .4s;
+    }
+
+    main {
+      padding: 150px;
+      background-color: #ffcc70;
+      height: 400vh;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+    스크롤 위로 올리면 헤더보이고 내리면 헤더숨김 
+    이전 스크롤 값과 현재 스크롤 값을 비교
+    현재 스크롤의 값이 크면, 스크롤이 내려오는 상태
+    현재 스크롤의 값이 작으면, 스크롤이 올라가는 상태
+    scrollY
+  -->
+  <header>header</header>
+  <main>main</main>
+
+  <script>
+    // 스크롤을 아래로 내리면 헤더가 보이지 않고
+    // 스크롤을 위로 올리면 헤더 보임
+    // scrollY
+
+    const header = document.querySelector('header');
+    let prevScroll = scrollY;
+    console.log('prevScroll', prevScroll);
+
+    const posTop = (ht) => {
+      header.style.top = `-${ht}px`;
+    }
+
+    const scrolled = () => {
+      // 이전 스크롤 값과 현재 스크롤 값을 비교하여
+
+      // 스크롤 이벤트가 발생될 때만 스크롤 값 반환
+      let currentScroll = scrollY;
+      // console.log('currentScroll', currentScroll);
+
+      const headerHt = header.offsetHeight;
+      console.log('headerHt', headerHt)
+      // 현재 스크롤의 값이 크면, 스크롤이 내려오는 상태
+      // prevScroll < currentScroll ? (header.style.top = `-${headerHt}px`) : (header.style.top = 0);
+      prevScroll < currentScroll ? posTop(headerHt) : posTop(0);
+    }
+
+    addEventListener('scroll', scrolled);
+  </script>
+</body>
+
+</html>
