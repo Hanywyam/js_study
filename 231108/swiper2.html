@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>swiper2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- reset -->
+  <link rel="stylesheet" href="../common/minireset.min.css">
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Demo styles -->
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: #eee;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 90%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .swiper-pagination {
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      margin: 50px;
+      font-weight: bold;
+      background-color: rgba(238, 238, 238, 0.5);
+      border-radius: 50%;
+      border: 2px solid #fff;
+      --swiper-pagination-top: 10px;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      --swiper-theme-color: #fff;
+    }
+
+    .swiper-wrapper {
+      position: relative;
+    }
+
+    .swiper-subSlide {
+      width: 40%;
+      height: 300px;
+      background-color: rgba(238, 238, 238, 0.5);
+      position: absolute;
+      text-align: left;
+      padding: 20px;
+      bottom: 50px;
+      right: 0;
+    }
+
+    .swiper-subSlide .title {
+      font-weight: bold;
+    }
+
+    .swiper-subSlide .text {
+      font-size: 1.3rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <ul class="swiper-wrapper">
+      <li class="swiper-slide">
+        <img src="https://via.placeholder.com/1000x500/1d2f6f/fff?text=pic1" alt="background-color">
+
+
+        <div class="swiper-subSlide">
+          <div class="title" data-swiper-parallax="-300">Title 1</div>
+          <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+          <div class="text" data-swiper-parallax="-100">
+            <p>빨리 끝은 언론도 때의 숙녀에 자신을 한순간을 변화하여, 잡다. 춤추는 멀어도 살던 된 78가지 지구촌은 딸애다 장 보는데 하다. 때를 7번째 내 들어간 다짐하면 가져오지만 이웃집은 타박만
+              기법을 사양하자.
+            </p>
+          </div>
+        </div>
+      </li>
+
+      <li class="swiper-slide">
+        <img src="https://via.placeholder.com/1000x500/8390fa/fff?text=pic2" alt="background-color">
+
+        <div class="swiper-subSlide">
+          <div class="title" data-swiper-parallax="-300">Title 2</div>
+          <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+          <div class="text" data-swiper-parallax="-100">
+          </div>
+        </div>
+      </li>
+
+      <li class="swiper-slide">
+        <img src="https://via.placeholder.com/1000x500/fac748/fff?text=pic3" alt="background-color">
+
+        <div class="swiper-subSlide">
+          <div class="title" data-swiper-parallax="-300">Title 3</div>
+          <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+          <div class="text" data-swiper-parallax="-100">
+          </div>
+        </div>
+      </li>
+
+      <li class="swiper-slide">
+        <img src="https://via.placeholder.com/1000x500/f88dad/fff?text=pic4" alt="background-color">
+
+        <div class="swiper-subSlide">
+          <div class="title" data-swiper-parallax="-300">Title 4</div>
+          <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
+          <div class="text" data-swiper-parallax="-100">
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      pagination: {
+        el: ".swiper-pagination",
+        type: "fraction",
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+    });
+  </script>
+</body>
+
+</html>

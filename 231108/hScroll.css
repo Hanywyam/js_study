@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+body {
+  font-size: 2rem;
+  font-weight: bold;
+  /* overflow-x: hidden; */
+}
+
+.box {
+  height: 100vh;
+  background-color: #ddd;
+}
+.box:last-of-type {
+  background-color: #a6cf98;
+}
+
+.horizontal-wrap {
+  width: 100%;
+  position: relative;
+}
+.horizontal-wrap .sticky-box {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+.horizontal-wrap .sticky-box .horizontal-box {
+  /* ul을 움직여서 가로 스크롤 */
+  width: 300%;
+  height: 100%;
+  display: flex;
+}
+.horizontal-wrap .sticky-box .horizontal-box li {
+  width: 100%;
+  height: 100%;
+}
+.horizontal-wrap .sticky-box .horizontal-box .row1 {
+  background-color: #61a3ba;
+}
+.horizontal-wrap .sticky-box .horizontal-box .row2 {
+  background-color: #d2de32;
+}
+.horizontal-wrap .sticky-box .horizontal-box .row3 {
+  background-color: #a2c579;
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>swiper1</title>
+  <!-- reset -->
+  <link rel="stylesheet" href="../common/minireset.min.css">
+  <!-- swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <!-- 원본에 "/" 는 지워도됨. -->
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- 플러그인은 보통 헤드쪽에 많이 붙임 -->
+
+  <!-- 내가 작업한 css가 제일 마지막 추가 -->
+  <style>
+    /* :root { css 변수 설정 } 전역 변수 */
+    .main-slide {
+      height: 50vh;
+      overflow: hidden;
+      position: relative;
+
+      /* 지역변수 선언: 설정된 전역 변수값 개별 제어가능 */
+      --swiper-navigation-size: 30px;
+      --swiper-theme-color: #fff;
+    }
+
+    .sub-slide {
+      width: 80vw;
+      height: 30vh;
+      margin: 50px auto;
+      overflow: hidden;
+      position: relative;
+
+      --swiper-pagination-top: 8px;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- .main-slide: .swiper-wrapper, .swiper-pagination, .swiper-button-prev, .swiper-button-next -->
+  <div class="main-slide" id="main-slide">
+    <ul class="swiper-wrapper">
+      <li class="swiper-slide"><img src="https://via.placeholder.com/1000x500/190482/fff?text=pic1"
+          alt="background-color"></li>
+      <li class="swiper-slide"><img src="https://via.placeholder.com/1000x500/543287/fff?text=pic2"
+          alt="background-color"></li>
+      <li class="swiper-slide"><img src="https://via.placeholder.com/1000x500/126725/fff?text=pic3"
+          alt="background-color"></li>
+      <li class="swiper-slide"><img src="https://via.placeholder.com/1000x500/956375/fff?text=pic4"
+          alt="background-color"></li>
+    </ul>
+    <!-- 추가 옵션 -->
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <article class="sub-slide" id="sub-slide">
+    <div class="swiper-wrapper">
+      <p class="swiper-slide"><img src="https://via.placeholder.com/1000x500/190482/fff?text=subpic1"
+          alt="background-color"></p>
+      <p class="swiper-slide"><img src="https://via.placeholder.com/1000x500/956375/fff?text=subpic2"
+          alt="background-color"></p>
+      <p class="swiper-slide"><img src="https://via.placeholder.com/1000x500/543287/fff?text=subpic3"
+          alt="background-color"></p>
+    </div>
+    <div class="swiper-pagination"></div>
+  </article>
+
+  <script>
+    // const 식별자 = new Swiper("대상", {옵션:객체});
+    const mainSlide = new Swiper("#main-slide", {
+      loop: true, //무한반복
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      slidesPerView: 1,
+      navigation: {
+        nextEl: ".swiper-button-prev",
+        prevEl: ".swiper-button-next",
+      },
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+    });
+
+    const subSlide = new Swiper("#sub-slide", {
+      loop: true, //무한반복
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      slidesPerView: 1,
+    });
+  </script>
+
+
+  <!--
+<body>
+
+  <div class="simpleSlide">
+    <ul class="slideWrapper">
+      <li class="slideItem img1 active">img1</li>
+      <li class="slideItem img2">img2</li>
+      <li class="slideItem img3">img3</li>
+      <li class="slideItem img4">img4</li>
+    </ul>
+    <ul class="btn-wrap">
+      <li class="btn" id="pre-btn">&lt;</li>
+      <li class="btn" id="nxt-btn">&gt;</li>
+    </ul>
+  </div>
+
+
+ 
+  <script>
+    const slideItems = document.querySelectorAll('.slideItem');
+    const prevBtn = document.querySelector('#pre-btn');
+    const nextBtn = document.querySelector('#nxt-btn');
+
+    console.log(slideItems);
+
+    let idx = 0;
+    nextBtn.addEventListener("click", () => {
+        slideItems[idx].classList.remove("active");
+        idx++;
+        if (idx >= slideItems.length) idx = 0;
+        slideItems[idx].classList.add('active');
+    });
+
+    prevBtn.addEventListener("click", () => {
+        slideItems[idx].classList.remove("active");
+        idx--;
+        if (idx < 0) idx = slideItems.length - 1;
+        slideItems[idx].classList.add('active');
+    });
+
+    setInterval(() => { nextBtn.click(); }, 3000);
+</script>
+ -->
+</body>
+
+</html>
