@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+/* Swiper */
+.mainSwiper {
+  width: 90vw;
+  height: 60vh;
+  margin: 0 auto;
+  background-color: #ddd;
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 1.1rem;
+}
+
+/* 이미지 */
+.mainSwiper .swiper-wrapper li {
+  background: no-repeat 50% / cover;
+}
+.mainSwiper .swiper-wrapper .bg1 {
+  background-image: url(https://via.placeholder.com/1000x500/1d2f6f/fff?text=pic1);
+}
+.mainSwiper .swiper-wrapper .bg2 {
+  background-image: url(https://via.placeholder.com/1000x500/8390fa/fff?text=pic2);
+}
+.mainSwiper .swiper-wrapper .bg3 {
+  background-image: url(https://via.placeholder.com/1000x500/fac748/fff?text=pic3);
+}
+.mainSwiper .swiper-wrapper .bg4 {
+  background-image: url(https://via.placeholder.com/1000x500/f88dad/fff?text=pic4);
+}
+
+.mainSwiper .swiper-wrapper .bg-box {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 500px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.mainSwiper .swiper-wrapper .title {
+  font-weight: bold;
+  font-size: 1.6rem;
+  position: absolute;
+  top: 53%;
+  left: 53%;
+}
+.mainSwiper .swiper-wrapper .subtitle {
+  font-weight: bold;
+  font-size: 1.3rem;
+  position: absolute;
+  top: 59%;
+  left: 53%;
+}
+.mainSwiper .swiper-wrapper .text {
+  line-height: 1.5;
+  max-width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.mainSwiper .section-box {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 500px;
+  height: 250px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.mainSwiper .section-box .title,
+.mainSwiper .section-box .subtitle,
+.mainSwiper .section-box .text {
+  position: static;
+}
+
+.mainSwiper .my-page-no {
+  width: 100px;
+  
+}

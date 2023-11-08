@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>swiper2</title>
+  <link rel="stylesheet" href="../common/minireset.min.css">
+  <link rel="stylesheet" href="./swiper.css">
+</head>
+
+<body>
+  <div class="swiper mainSwiper">
+    <!-- 배경 고정
+      <div class="parallax-bg" style="
+    background-image: url(https://swiperjs.com/demos/images/nature-1.jpg);
+  " data-swiper-parallax="-23%"></div> 
+    -->
+    <ul class="swiper-wrapper">
+      <li class="swiper-slide bg1">
+        <!-- <section data-swiper-parallax="-300">
+          <h2></h2>
+          <h3></h3>
+          <p></p>
+        </section> -->
+        <div class="bg-box" data-swiper-parallax="-600"></div>
+        <h2 class="title" data-swiper-parallax="-300">title1</h2>
+        <h3 class="subtitle" data-swiper-parallax="-200">subtitle1</h3>
+        <p class="text" data-swiper-parallax="-100">국가는 농수산물의 수급균형과 유통구조의 개선에 노력하여 가격안정을 도모함으로써 농·어민의 이익을 보호한다</p>
+      </li>
+      <li class="swiper-slide bg2">
+        <section class="section-box" data-swiper-parallax="-600">
+          <h2 class="title">title2</h2>
+          <h3 class="subtitle">subtitle2</h3>
+          <p class="text">새로운 회계연도가 개시될 때까지 예산안이 의결되지 못한 때에는 정부는 국회에서 예산안이</p>
+        </section>
+      </li>
+      <li class="swiper-slide bg3">
+        <div class="bg-box" data-swiper-parallax="-600"></div>
+        <h2 class="title" data-swiper-parallax="-300">title3</h2>
+        <h3 class="subtitle" data-swiper-parallax="-200">subtitle3</h3>
+      </li>
+      <li class="swiper-slide bg4">
+        <div class="bg-box" data-swiper-parallax="-600"></div>
+        <h2 class="title" data-swiper-parallax="-300">title4</h2>
+        <h3 class="subtitle" data-swiper-parallax="-200">subtitle4</h3>
+      </li>
+    </ul>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <script>
+    const mainSwiper = new Swiper(".mainSwiper", {
+      loop: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: true,
+      },
+      speed: 600,
+      parallax: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+</body>
+
+</html>
