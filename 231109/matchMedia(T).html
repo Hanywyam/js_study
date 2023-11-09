@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>matchMedia</title>
+</head>
+
+<body>
+  <h1>matchMedia</h1>
+  <a href="https://developer.mozilla.org/ko/docs/Web/API/Window/matchMedia" target="_blank">matchMedia</a>
+
+  <h3></h3>
+  <script>
+    /*
+      window.matchMedia(mediaQueryString); 미디어쿼리 객체 반환
+        matchMedia( '(min-width:768px)' ); 
+        matchMedia( 'screen and (min-width:768px) and (max-width:1241px)' );
+        matchMedia('(min-width:768px)').matches; 범위가 맞는지 boolean으로 반환
+    */
+
+    const mq = matchMedia('(width >= 768px)');
+
+    const mediaChange = (bg, txt) => {
+      document.body.style.background = bg;
+      document.querySelector('h3').textContent = `768px ${txt} 화면입니다.`;
+    }
+
+    /*
+    if (mq.matches) {
+      mediaChange('orange', '이상의');
+    } else {
+      mediaChange('lightskyblue', '미만의');
+    }
+    */
+
+    mq.matches ? mediaChange('orange', '이상의') : mediaChange('lightskyblue', '미만의');
+  </script>
+</body>
+
+</html>

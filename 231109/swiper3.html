@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>swiper3</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <!-- reset -->
+  <link rel="stylesheet" href="../common/reset.css">
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script defer src="./swiper3.js"></script>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      position: relative;
+      height: 100%;
+    }
+
+    nav {
+      width: 100%;
+      height: 70px;
+      background-color: #4dad72;
+      border-bottom: #000 1px solid;
+      align-items: center;
+      box-sizing: border-box;
+      position: fixed;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      z-index: 9999;
+    }
+
+    h1 {
+      width: 50px;
+      height: 40px;
+      line-height: 40px;
+      margin: 15px;
+      background-color: #1f6d40;
+      color: #fff;
+      border: 1px solid #fff;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    menu {
+      font-weight: bold;
+      text-transform: capitalize;
+      position: absolute;
+      top: 100%;
+      width: 100%;
+    }
+
+    menu li {}
+
+    menu li a {
+      padding: 10px 30px;
+      display: block;
+      background-color: #fff;
+      border-bottom: #000 1px solid;
+    }
+
+    menu li a.colorOn {
+      color: #135a31;
+    }
+
+    /* menu li a.active {} */
+
+    @media(width >=720px) {
+      header {
+        background-color: #222;
+      }
+
+      nav menu {
+        /* 기존값 초기화 */
+        position: static;
+        width: auto;
+
+        display: flex;
+        align-items: center;
+      }
+
+      nav menu li a {
+        background-color: transparent;
+        border: none;
+      }
+
+    }
+
+
+    .swiper {
+      width: 100%;
+      height: 100vh;
+      /* overflow: hidden; */
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-wrapper li {
+      background: no-repeat 50% / cover;
+    }
+
+    .swiper-wrapper .swiper-slide:nth-child(1) {
+      background-image: url(https://via.placeholder.com/1000x500/186F65/fff?text=pic1);
+    }
+
+    .swiper-wrapper .swiper-slide:nth-child(2) {
+      background-image: url(https://via.placeholder.com/1000x500/B5CB99/fff?text=pic2);
+    }
+
+    .swiper-wrapper .swiper-slide:nth-child(3) {
+      background-image: url(https://via.placeholder.com/1000x500/FCE09B/fff?text=pic3);
+    }
+
+    .swiper-wrapper .swiper-slide:nth-child(4) {
+      background-image: url(https://via.placeholder.com/1000x500/B2533E/fff?text=pic4);
+    }
+
+    .swiper-wrapper .swiper-slide:nth-child(5) {
+      background-image: url(https://via.placeholder.com/1000x500/FF5733/fff?text=pic5);
+    }
+
+    .swiper-wrapper .swiper-slide:nth-child(6) {
+      background-image: url(https://via.placeholder.com/1000x500/FFBD33/fff?text=pic6);
+    }
+
+    footer {
+      width: 100vw;
+      height: 70px;
+      text-align: center;
+      background-color: #000;
+      color: #fff;
+      display: grid;
+      place-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+    pc: 화면3개
+    tb: 화면2개
+    mb: 화면1개
+    헤더 메뉴바 누르면 영역이동
+    하단에 슬라이드바
+   -->
+  <header>
+    <nav>
+      <h1>로고</h1>
+      <menu class="menu-bar">
+        <li><a href="#">menu1</a></li>
+        <li><a href="#">menu2</a></li>
+        <li><a href="#">menu3</a></li>
+        <li><a href="#">menu4</a></li>
+        <li><a href="#">menu5</a></li>
+        <li><a href="#">menu6</a></li>
+      </menu>
+    </nav>
+  </header>
+
+  <!-- Swiper -->
+  <main>
+    <div class="swiper mySwiper">
+      <ul class="swiper-wrapper">
+        <li class="swiper-slide"></li>
+        <li class="swiper-slide"></li>
+        <li class="swiper-slide"></li>
+        <li class="swiper-slide"></li>
+        <li class="swiper-slide"></li>
+        <li class="swiper-slide"></li>
+      </ul>
+      <div class="swiper-scrollbar"></div>
+    </div>
+  </main>
+
+  <!-- footer -->
+  <footer>footer</footer>
+</body>
+
+</html>

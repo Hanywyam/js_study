@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>resize</title>
+  <style></style>
+</head>
+
+<body>
+  <h1>resize</h1>
+  <h3></h3>
+  <script>
+    /* 
+    초창기 메서드
+      .onresize()
+      .on('resize', ()=>{});
+
+    ES6+ 표준 모델
+    : 뷰포트의 사이즈가 변할 때 이벤트 발생
+      window.addEventListener('resize',()=>{})
+    */
+
+    const mq = matchMedia('(width >= 768px)');
+
+    const mediaChange = (bg, txt) => {
+      document.body.style.background = bg;
+      document.querySelector('h3').textContent = `768px ${txt}의 화면입니다.`
+    }
+
+    addEventListener('resize', () => {
+      mq.matches ? mediaChange('tomato', '이상') : mediaChange('magenta', '미만');
+    });
+  </script>
+</body>
+
+</html>

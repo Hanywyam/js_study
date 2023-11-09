@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>requestAnimationFrame</title>
+  <style>
+    body {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .emoji {
+      font-size: 6rem;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      cursor: none;
+
+      will-change: transform;
+      /* 
+      will-change:
+        요소에 예상되는 변화의 종류에 관한 힌트를 브라우저에 제공.
+        실제 요소가 변화되기 전에 미리 브라우저는 적절하게 최적화 할 수 있다.
+        웹킷 계열 브라우저의 경우 transform, animation 사용 시 깜빡이는 현상이 있어 방지하기 위해 사용.
+
+      값:
+        auto; 기본값
+        scroll-positon; 스크롤 위치 바꿈
+        contents; 컨텐츠 바꿈
+        그외 css 속성(opacity, top, left ...) 사용 가능
+
+      단, 남용 금지.
+      https://developer.mozilla.org/ko/docs/Web/CSS/will-change      
+      */
+    }
+  </style>
+</head>
+
+<body>
+  <h1>window.requestAnimationFrame()</h1>
+  <h2>화면에 프레임이 실행되기 전 함수 호출</h2>
+  <a href="https://developer.mozilla.org/ko/docs/Web/API/window/requestAnimationFrame" target="_blank">MDN</a>
+
+  <div class="emoji"> 🎅 </div>
+
+  <script>
+    /*
+      requestAnimationFrame(callback);
+      ㄴ 콜백함수: 애니메이션을 업데이트할 때 호출할 함수
+      ㄴ 반환값: 요청 id인 long 정수 값(매끄럽게 움직임을 갖게 해준다.)
+    */
+
+    const body = document.querySelector('body');
+    const emoji = document.querySelector('.emoji');
+
+    const onMoving = evt => {
+      emoji.style.transform = `translate(${evt.clientX - 100}px,${evt.clientY - 80}px)`;
+    };
+
+    body.addEventListener('mousemove', onMoving);
+  </script>
+
+</body>
+
+</html>
