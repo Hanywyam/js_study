@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>fetch</title>
+</head>
+
+<body>
+  <h1>Fetch API</h1>
+  <p>네트워크 통신을 포함한 리소스 취득을 JavaScript에서 접근하고 조작할 수 있도록 인터페이스 제공</p>
+  <ul>
+    <li>fetch() : 리소스를 취득하기 위한 메서드</li>
+    <li>Headers : 요청/응답 헤더</li>
+    <li>Request : 리소스 요청</li>
+    <li>Response : 요청에 대한 응답</li>
+  </ul>
+
+  <!-- 결과값 반환 -->
+  <div class="result"></div>
+
+  <script>
+    // JSON 파일 요청
+    fetch('https://dummyjson.com/users')
+      // json 파일을 js 객체로 변환
+      .then(resolve => resolve.json())
+      // 출력
+      // .then(json => console.log(json))
+      // .then(item => console.log(item.users[0]))
+      .then(json => {
+        let person = '';
+        json.users.forEach((user, idx) => {
+
+          if (idx < 10) {
+            console.log(user)
+            person +=
+              `<h2>${user.firstName}</h2>
+              <ol>
+                <li>이메일 : ${user.email}</li>
+                <li>연락처 : ${user.phone}</li>
+                <li><img src=${user.image} alt=${user.lastName}></li>
+              </ol>
+              `
+          }
+        });
+        document.querySelector('.result').innerHTML = person;
+      })
+      .catch(err => console.log(err))
+  </script>
+</body>
+
+</html>

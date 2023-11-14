@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JSONEx</title>
+</head>
+
+<body>
+  <script>
+    const data1 = {
+      "id": 1,
+      "name": "coffee",
+      "종류": ["아메리카노", "라떼"]
+    };
+    const data2 = [
+      { "no": 1, "name": "tea", "boo": false },
+      { "no": 2, "name": "water", "boo": true },
+    ]
+
+    console.log(data1);
+    console.log(data2);
+
+    const json1 = JSON.stringify(data1);
+    const json2 = JSON.stringify(data2);
+    // JSON 문자열 변환
+    console.log("JSON", json1);
+    console.log("JSON", json2);
+
+    // JSON -> JS 
+    console.log(
+      JSON.parse(json1)
+    );
+    console.log(
+      JSON.parse(json2)
+    );
+  </script>
+</body>
+
+</html>

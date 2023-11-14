@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>구조분해할당</title>
+  <style></style>
+</head>
+
+<body>
+  <h1>구조분해, 구조분해할당, 비구조할당</h1>
+
+  <script>
+    /* 
+      생성)
+      객체 = { 키: 값 }
+
+      사용)
+      객체.키(기본 사용)
+      객체['키']
+    */
+
+    const user = {
+      id: 1,
+      item: 'js',
+      email: 'js@js.org',
+      addr: '수원'
+    }
+    console.log(user.id, user.item);
+
+    // 구조분해, 구조분해할당, 비구조할당
+    const { id, item, email, addr } = user;
+    console.log(id, item, email, addr); //객체명 생략 가능
+
+    const data = {
+      a: 10,
+      b: 20,
+      c: 30
+    }
+    const { a, b, c } = data;
+    console.log(a, b, c);
+  </script>
+</body>
+
+</html>

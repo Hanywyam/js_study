@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>async+await3</title>
+  <style>
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    ul li {
+      margin: 20px;
+      padding: 20px;
+      border-bottom: 2px solid teal;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>카카오 책 검색</h1>
+  <ul class="result">
+
+  </ul>
+  <script>
+    const result = document.querySelector('.result');
+
+    const APIKEY = '890138c5e578ddaa1fbec68ba85e3622';
+    const URL = 'https://dapi.kakao.com/v3/search/book';
+
+    const getBooks = async () => {
+      try {
+        const res = await fetch(`${URL}?query=동화`, {
+          method: "GET",
+          headers: {
+            // "Host": "dapi.kakao.com",
+            "Authorization": `KakaoAK ${APIKEY}`
+          }
+        });
+
+        const books = await res.json();
+        console.log(books.documents);
+        spreadBook(books.documents);
+
+      } catch (err) {
+        console.log(err)
+      }
+    };
+
+    const spreadBook = (items) => {
+
+      /* 방법 1) .forEach();
+      let output = '';
+      items.forEach(itm => {
+        output += `
+        <li>
+        <h2>제목: ${itm.title}</h2>
+        <p><img src=${itm.thumbnail} alt=${itm.title}</p>
+        <p>지은이: ${itm.authors}</p>
+        <p>글소개: ${itm.contents}</p>
+        <p>출판년도: ${itm.datetime}</p>
+        <p>판매가: ${itm.price}</p>
+        <p>할인가: ${itm.sale_price}</p>
+        <p>출판사: ${itm.publisher}</p>
+        </li>
+        `
+      }); */
+
+
+      // 방법 2) .map(); 
+      const output = items.map(itm => {
+        return `<li>
+        <h2>제목: ${itm.title}</h2>
+        <p><img src=${itm.thumbnail} alt=${itm.title}</p>
+        <p>지은이: ${itm.authors}</p>
+        <p>글소개: ${itm.contents}</p>
+        <p>출판년도: ${itm.datetime}</p>
+        <p>판매가: ${itm.price}</p>
+        <p>할인가: ${itm.sale_price}</p>
+        <p>출판사: ${itm.publisher}</p>
+        </li>
+        `
+      });
+      // .forEach(); 비동기 작업을 기다리지 않고 실행
+      // .map(); 각 요소에 대해 비동기 작업을 수행하고, 그 결과 새로운 배열을 반환
+
+      result.innerHTML = output;
+    }
+
+    getBooks();
+  </script>
+</body>
+
+</html>

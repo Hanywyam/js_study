@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>비동기함수Ex-시간차텍스트</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Oswald:wght@700&display=swap"
+    rel="stylesheet">
+  <style>
+    .container {
+      position: relative;
+    }
+
+    .txt-wrap {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      /* display: none; */
+    }
+
+    .txt-wrap .sub-title {
+      font-family: 'IBM Plex Sans KR', sans-serif;
+      display: block;
+      letter-spacing: 1px;
+      color: #222;
+      transition: .6s;
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    .txt-wrap .title {
+      color: #f05941;
+      font-family: 'Oswald', sans-serif;
+      opacity: 0;
+      font-size: 5rem;
+      line-height: 1;
+      transition: 1s 1s;
+      transform: translateY(50px);
+      margin: 0;
+    }
+
+    .txt-wrap.active .sub-title,
+    .txt-wrap.active .title {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<!-- setTimeOut / set인터벌? -->
+
+<body>
+  <div class="container">
+    <div class="txt-wrap">
+      <span class="sub-title">시간차1</span>
+      <h2 class="title">lorem & <br>ipsum</h2>
+    </div>
+    <div class="txt-wrap">
+      <span class="sub-title">시간차2</span>
+      <h2 class="title">html & css3 <br>javaScript</h2>
+    </div>
+    <div class="txt-wrap">
+      <span class="sub-title">시간차3</span>
+      <h2 class="title">춥다.. <br>핫팩은 뜨겁지</h2>
+    </div>
+  </div>
+
+  <script>
+    const txtWrap = document.querySelectorAll(".txt-wrap");
+
+    let idx = 0;
+    (function autoTxt() {
+      txtWrap.forEach(wrap => {
+        wrap.classList.remove("active")
+      });
+      if (idx < txtWrap.length) {
+        txtWrap[idx].classList.add("active");
+        idx++;
+      } else {
+        idx = 0;
+      }
+
+      // 지정된 시간동안 한번만 움직임.
+      setTimeout(autoTxt, 3000);
+    })();
+  </script>
+</body>
+
+</html>

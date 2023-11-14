@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>promise2-callback</title>
+  <style></style>
+</head>
+
+<body>
+  <h1>promise2-callback</h1>
+  <p>옛날 방식</p>
+  <script>
+    // 주문 접수 -> 주문한 메뉴가 5분 이내 준비될 예정입니다. -> 제조중 -> 주문한 커피가 나왔습니다.
+
+    console.log('커피 주문');
+
+    const order1 = (item) => {
+      setTimeout(() => {
+        console.log('주문 접수');
+        item();
+      }, 2000)
+    }
+    const order2 = (item) => {
+      setTimeout(() => {
+        console.log('주문한 메뉴가 5분 이내 준비될 예정입니다.');
+        item();
+      }, 1000)
+    }
+    const order3 = (item) => {
+      setTimeout(() => {
+        console.log('제조중');
+        item();
+      }, 2000)
+    }
+
+    order1(() => {
+      order2(() => {
+        order3(() => {
+          console.log('주문한 커피가 나왔습니다.');
+        })
+      })
+    })
+  </script>
+</body>
+
+</html>

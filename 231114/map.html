@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>map</title>
+  <style></style>
+</head>
+
+<body>
+
+  <script>
+    // 배열의 각 요소의 함수 호출 결과를 새로운 배열로 반환
+
+    const arr1 = [10, 20, 30, 40, 50];
+    // (인덱스 번호: 요소명, 1:요소명)
+    arr1.map((itm, idx) => console.log(idx + ":" + itm));
+
+    const arr2 = [
+      { id: 1, name: 'html5' },
+      { id: 2, name: 'css3' },
+      { id: 3, name: 'js' },
+      { id: 4, name: 'react' }
+    ]
+
+    // (1, html5), (2, css3)...
+    arr2.map((arr) => console.log(arr.id, arr.name));
+
+  </script>
+
+</body>
+
+</html>

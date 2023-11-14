@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>mapEx</title>
+  <style></style>
+</head>
+
+<body>
+
+  <script>
+    // 커피 종류와 가격을 객체로 만들고 콘솔에 각 커피와 가격을 출력
+
+    const coffee = [
+      { id: '아메리카노', price: '3000' },
+      { id: '카페라떼', price: '3500' },
+      { id: '말차라떼', price: '4500' },
+      { id: '프라푸치노', price: '6500' },
+      { id: '자몽블랙티', price: '5000' }
+    ]
+
+    coffee.map((cfe) => console.log(cfe.id, cfe.price))
+  </script>
+</body>
+
+</html>

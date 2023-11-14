@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>async+await2</title>
+  <style>
+    ul {
+      padding: 20px;
+      border-bottom: 1px solid #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="result"></div>
+
+  <script>
+    const result = document.querySelector('.result');
+    const URL = 'https://jsonplaceholder.typicode.com/users';
+
+    /*
+     fetch(URL).then(res => res.json()).then(users => console.log(users));
+
+    async function data() {
+      // 서버의 자료를 다 가져오면 결과값을 res에 저장
+      const res = await fetch(URL);
+      // res.json 실행이 끝나면 users에 저장
+      const users = await res.json();
+      console.log(users);
+    }
+    */
+
+    // 데이터 요청
+    const data = async () => {
+      const res = await fetch(URL);
+      const users = await res.json();
+
+      userList(users);
+    }
+
+    // 문서 출력(실행)
+    const userList = (users) => {
+      let output = '';
+      users.forEach(user => {
+        output += `
+          <h3>이름 : ${user.name}</h3>
+          <ul>
+            <li>이메일 : ${user.email}</li>
+            <li>연락처 : ${user.phone}</li>
+            <li>주소 : ${user.address.city}</li>
+          </ul>
+        `
+      });
+      result.innerHTML = output;
+    }
+
+    data();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>async+awaitEx</title>
+  <style></style>
+</head>
+
+<body>
+  <div class="result"></div>
+
+  <script>
+    // https://jsonplaceholder.typicode.com/photos
+
+    const result = document.querySelector('.result');
+    const URL = 'https://jsonplaceholder.typicode.com/photos';
+
+    /* 
+    fetch(URL).then(res => res.json()).then(pics => {
+
+      // 랜덤으로 <h3>title</h3>, <img src=url> 출력 => Maths
+      const random = Math.floor(Math.random() * 100); //0~99
+      console.log(pics[random]);
+
+      // title명의 글자 출력수는 10자리까지만 => substring
+      result.innerHTML = `
+      <h3>${pics[random].title.substring(0,11)}...</h3>
+      <img src=${pics[random].thumbnailUrl} alt=${pics[random].title}>
+      `
+    }).catch(err => console.log(err)) */
+
+    // 비동기 함수로 다시 작성
+    const data = async () => {
+      const res = await fetch(URL);
+      const pics = await res.json();
+
+      userPics(pics);
+    }
+
+    const userPics = (items) => {
+      const random = Math.floor(Math.random() * 100);
+      result.innerHTML = `
+      <h3>${items[random].title.substring(0, 11)}...</h3>
+      <img src=${items[random].thumbnailUrl} alt=${items[random].title}>
+      `;
+    }
+
+    data();
+
+    /* 내가 쓴 js
+        const data = async () => {
+          const res = await fetch(URL);
+          const photos = await res.json();
+    
+          photoList(photos);
+    
+          // const random = randomItm(photos);
+          // photoList([random]);
+        }
+    
+        const photoList = (itm) => {
+          let output = '';
+          itm.forEach(i => {
+            output += `
+            <h3>제목: ${i.title}</h3>
+            <img src=${i.url} alt=${i.title}>
+            `
+          })
+          result.innerHTML = output;
+        }
+        data(); */
+  </script>
+</body>
+
+</html>

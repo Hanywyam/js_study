@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>삼항연산자+논리연산자</title>
+  <style></style>
+</head>
+
+<body>
+  <script>
+    /* 
+      삼항 연산자 : 바로 변수 대입이 가능하여 심플하게 작성 가능.
+      조건 ? true 일 때 : false 일 때;
+
+      논리 연산자 :
+      (조건) && true인 결과
+      true && 결과
+
+      (조건) || false인 결과
+      false || 결과
+      null || 결과
+      undefined || 결과
+    */
+
+    const done1 = true;
+    const done2 = false;
+    const done3 = undefined;
+
+    const result1 = done1 === true ? '참' : '거짓';
+    console.log(result1);
+
+    // 1. true && '참인 결과' 연산
+    // 2. 위의 결과를 done1과 비교
+    const result2 = done1 === true && '참인 결과';
+    console.log(result2);
+
+    const result3 = done2 || '거짓인 결과';
+    console.log(result3);
+
+    const result4 = done3 || '값이 존재하지 않음';
+    console.log(result4);
+
+  </script>
+</body>
+
+</html>

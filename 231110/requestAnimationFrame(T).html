@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>requestAnimationFrame</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+    }
+
+    .emoji {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      font-size: 3rem;
+
+      will-change: transform;
+      /* 
+      will-change: 
+      요소에 예상되는 변화의 종류에 관한 힌트를 브라우저에 제공 
+      실제 요소가 변화되기 전에 미리 브라우저는 적절하게 최적화할 수 있다
+      웹킷 계열 브라우저의 경우 transform, animation 사용시 깜빡이는 현상이 있어 방지하기 위해 사용
+
+      값
+        auto; 기본값
+        scroll-position; 스크롤 위치 바꿈
+        contents; 컨텐츠 바꿈
+        그 외 css 속성(opacity, top, left..) 사용 가능
+      */
+    }
+  </style>
+</head>
+
+<body>
+  <h1>window.requestAnimationFrame()</h1>
+  <h2>화면에 프레임이 실행되기 전 함수 호출</h2>
+  <a href="https://developer.mozilla.org/ko/docs/Web/API/window/requestAnimationFrame" target="_blank">MDN</a>
+
+  <div class="emoji">🎅</div>
+
+  <script>
+    /*
+      requestAnimationFrame(callback);
+        ㄴ 콜백함수: 애니메이션을 업데이트할 때 호출할 함수
+        ㄴ 반환값 : 요청 id인 long 정수 값
+    */
+
+    const emoji = document.querySelector('.emoji');
+
+    // 마우스 좌표
+    let mouseX = 0;
+    let mouseY = 0;
+
+    addEventListener('mousemove', evt => {
+      mouseX = evt.clientX - 25;
+      mouseY = evt.clientY - 25;
+      // console.log(mouseX, mouseY)
+    })
+
+    // 커서를 따라다니는 이모지 좌표
+    let emojiX = 0;
+    let emojiY = 0;
+
+    const moving = () => {
+      // 연속 호출이 필요 // 함수 안에 또다른 함수 : 재기함수
+      requestAnimationFrame(moving);
+
+      emojiX += (mouseX - emojiX) * 0.1;
+      emojiY += (mouseY - emojiY) * 0.1;
+
+      emoji.style.transform = `translate(${emojiX}px, ${emojiY}px)`;
+      // console.log('eX', emojiX, 'eY', emojiY)
+    }
+
+
+  </script>
+</body>
+
+</html>

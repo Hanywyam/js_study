@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>promise3-promise</title>
+  <style></style>
+</head>
+
+<body>
+  <ol>
+    <li>커피 주문</li>
+    <li>이행하면(fulfilled), 주문 접수</li>
+    <li>이행하면(fulfilled), 주문 준비</li>
+    <li>이행하면(fulfilled), 제조중</li>
+    <li>이행하면(fulfilled), 주문 완료</li>
+  </ol>
+
+  <script>
+    // promise 객체 생성
+    const coffee = () => {
+      return new Promise(res => res('커피 주문'));
+    }
+
+    const step1 = (txt) => {
+      console.log(txt);
+      return new Promise(res => {
+        setTimeout(() => {
+          res('주문 접수')
+        }, 3000)
+      })
+    }
+    const step2 = (txt) => {
+      console.log(txt);
+      return new Promise(res => {
+        setTimeout(() => {
+          res('주문한 메뉴가 5분 이내 준비될 예정입니다.')
+        }, 3000)
+      })
+    }
+    const step3 = (txt) => {
+      console.log(txt);
+      return new Promise(res => {
+        setTimeout(() => {
+          res('제조중')
+        }, 3000)
+      })
+    }
+
+    coffee().then(step1).then(step2).then(step3).then(console.log('break time')).then(() => {
+      setTimeout(() => {
+        console.log('주문한 커피가 나왔습니다.');
+      }, 3000)
+    })
+  </script>
+</body>
+
+</html>

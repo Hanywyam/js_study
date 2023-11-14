@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>promise4</title>
+  <style></style>
+</head>
+
+<body>
+  <ol class="result"></ol>
+
+  <script>
+    const result = document.querySelector(".result");
+
+    const order = new Promise((res, rej) => {
+      const coffee = prompt("커피 주문", "라떼");
+      if (coffee != null && coffee != "") {
+        result.innerHTML = `<li>${coffee} 접수</li>`;
+        setTimeout(() => {
+          res(coffee)
+        }, 3000);
+      } else {
+        rej("커피 주문이 취소되었습니다.");
+      }
+    });
+
+    const make = (item) => { // item == 내가 대입하는 값
+      result.innerHTML += `<li>${item} 제조중..</li>`;
+    }
+    const output = (item) => { // item == 내가 대입하는 값
+      result.innerHTML += `<li>${item} 나왔습니다.</li>`;
+    }
+    const cancelOrder = (err) => {
+      alert(err)
+    }
+    order.then(make).then(output).catch(cancelOrder);
+  </script>
+</body>
+
+</html>

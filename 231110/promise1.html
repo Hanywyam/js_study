@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>promise1</title>
+  <style></style>
+</head>
+
+<body>
+  <h1>promise 1</h1>
+  <p>비동기 자바스크립트</p>
+  <p>콜백지옥을 해결하기 위해..사용</p>
+  <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Promise"
+    target="_blank">MDN</a>
+  <ul>
+    <li>대기(pending): 초기 상태</li>
+    <li>이행(fulfilled): 성공적으로 연산 완료된 상태. 결과 값을 포함.</li>
+    <li>거부(rejected): 실패한 상태. 오류 정보를 포함.</li>
+  </ul>
+
+  <script>
+    // Promise 객체 생성 new Promise(resolve, reject);
+    // resolve, reject == 실행 함수
+    let boo = false;
+
+    //coffee Promise 객체 생성
+    const coffee = new Promise((res, rej) => {
+      boo ? res('커피 주문') : rej('주문 실패')
+    });
+
+    // promise 객체를 이용한 비동기 작업
+
+    // 작성 1: than, catch로 작성
+    // .then() 이행 == fulfilled
+    // .catch() 실패 == rejected
+    // coffee.then(good => console.log(good)).catch(bad => console.log(bad));
+
+    // 작성 2: than에 한꺼번에 작성
+    coffee.then(
+      //이행 == fulfilled
+      order => console.log(order),
+      //실패 == rejected
+      cancel => console.log(cancel)
+    )
+  </script>
+</body>
+
+</html>
